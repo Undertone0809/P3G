@@ -24,6 +24,7 @@ In order to improve system compatibility and sustainability, there are some plan
 - Window compatibility: Improving compatibility with windows in makefiles.
 - New packages features: The latest features of docking related packages.
 - Package Management: Provide more solutions for Python package version management to improve the compatibility of different python version.
+- Provide documentation support(like Docusaurus).
 
 ## TL;DR
 
