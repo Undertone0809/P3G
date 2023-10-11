@@ -40,6 +40,15 @@ make install
 make pre-commit-install
 ```
 
+If you obtain a timeout error when installing, you can try to append an image source config in `poetry.toml`. The following example is tsinghua image source.
+
+```toml
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+priority = "default"
+```
+
 4. Run the codestyle:
 
 ```bash
