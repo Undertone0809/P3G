@@ -29,6 +29,12 @@ cd {{ cookiecutter.project_name }} && git init
 
 2. If you don't have `Poetry` installed run:
 
+> 1. Makefile only provides a fast initialization and construction method, but this may not be user-friendly for Windows users. There are plans to add special compatibility with Windows in the future, remove makefile, and use cross platforms construction tools.
+> 2. In this command, as the `pip` operation is required, the specific Python configuration may also vary for different users. Some users want to create a virtual environment through venv, while others prefer to use anaconda. Please ensure that your current environment variable Python is the Python environment you are currently using in your project. In this command, I recommend you to pip and install Poetry yourself.
+> 3. Subsequent scripts will all use poetry for operations, so you also need to pay attention to issues with the current Python environment.
+> 4. If you think you cannot solve this problem, please directly copy the commands you need to execute in the makefile and make specific adjustments.
+> 5. makefile may cause some problem when installing, but good for other scenes.
+
 ```bash
 make poetry-download
 ```
