@@ -77,7 +77,7 @@ pip install -U cookiecutter
 then go to a directory where you want to create your project and run:
 
 ```bash
-cookiecutter gh:Undertone0809/python-package-template --checkout v1.1.1
+cookiecutter gh:Undertone0809/python-package-template --checkout v0.1.3
 ```
 
 ### Input variables
@@ -445,9 +445,9 @@ Give them your ⭐️, these resources are amazing! 😉
 
 ```bibtex
 @misc{python-package-template,
-  author = {Roman Tezikov},
+  author = {Zeeland},
   title = {Python Packages Project Generator},
-  year = {2020},
+  year = {2023},
   publisher = {GitHub},
   journal = {GitHub repository},
   howpublished = {\url{https://github.com/Undertone0809/python-package-template}}

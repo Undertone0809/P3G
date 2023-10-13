@@ -8,15 +8,15 @@ categories:
   - title: ":rocket: Features"
     labels: [enhancement, feature]
   - title: ":wrench: Fixes & Refactoring"
-    labels: [bug, refactoring, bugfix, fix]
+    labels: [bug, refactoring, bugfix, fix, pref]
   - title: ":package: Build System & CI/CD"
     labels: [build, ci, testing]
   - title: ":boom: Breaking Changes"
     labels: [breaking]
   - title: ":pencil: Documentation"
-    labels: [documentation]
+    labels: [documentation, docs]
   - title: ":arrow_up: Dependencies updates"
-    labels: [dependencies]
+    labels: [dependencies, chore]
 
 template: |
   ## What’s Changed
