@@ -13,14 +13,6 @@ repos:
 
   - repo: local
     hooks:
-      - id: pyupgrade
-        name: pyupgrade
-        entry: poetry run pyupgrade --py{{ cookiecutter.minimal_python_version.replace('.', '') }}-plus
-        types: [python]
-        language: system
-
-  - repo: local
-    hooks:
       - id: isort
         name: isort
         entry: poetry run isort --settings-path pyproject.toml

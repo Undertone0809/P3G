@@ -10,7 +10,7 @@ VERSION := latest
 #* Poetry
 .PHONY: poetry-download
 poetry-download:
-	poetry run pre-commit install
+	pip install poetry
 
 .PHONY: poetry-remove
 poetry-remove:
@@ -21,7 +21,6 @@ poetry-remove:
 install:
 	poetry lock -n && poetry export --without-hashes > requirements.txt
 	poetry install -n
-	-poetry run mypy --install-types --non-interactive ./
 
 .PHONY: pre-commit-install
 pre-commit-install:
@@ -30,7 +29,6 @@ pre-commit-install:
 #* Formatters
 .PHONY: codestyle
 codestyle:
-	poetry run pyupgrade --exit-zero-even-if-changed --py{{ cookiecutter.minimal_python_version.replace('.', '') }}-plus **/*.py
 	poetry run isort --settings-path pyproject.toml ./
 	poetry run black --config pyproject.toml ./
 

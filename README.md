@@ -29,7 +29,7 @@ In order to improve system compatibility and sustainability, there are some plan
 ## TL;DR
 
 ```bash
-cookiecutter gh:Undertone0809/python-package-template --checkout v0.1.0
+cookiecutter gh:Undertone0809/python-package-template --checkout v0.1.2
 ```
 
 > All you need is the latest version of cookiecutter 😉
