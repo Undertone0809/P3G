@@ -12,25 +12,20 @@ VERSION := latest
 poetry-download:
 	pip install poetry
 
-.PHONY: poetry-remove
-poetry-remove:
-	poetry run pre-commit install
-
 #* Installation
 .PHONY: install
 install:
 	poetry lock -n && poetry export --without-hashes > requirements.txt
 	poetry install -n
-
-.PHONY: pre-commit-install
-pre-commit-install:
+{%- if cookiecutter.install_pre_commit %}
 	poetry run pre-commit install
+{%- endif %}
 
 #* Formatters
 .PHONY: codestyle
 codestyle:
-	poetry run isort --settings-path pyproject.toml ./
-	poetry run black --config pyproject.toml ./
+	poetry run isort --settings-path pyproject.toml --skip .venv ./
+	poetry run black --config pyproject.toml --exclude .venv ./
 
 .PHONY: formatting
 formatting: codestyle
@@ -43,13 +38,21 @@ test:
 
 .PHONY: check-codestyle
 check-codestyle:
-	poetry run isort --diff --check-only --settings-path pyproject.toml ./
-	poetry run black --diff --check --config pyproject.toml ./
+{%- if cookiecutter.install_isort %}
+	poetry run isort --diff --check-only --settings-path pyproject.toml --skip venv ./
+{%- endif %}
+{%- if cookiecutter.install_black %}
+	poetry run black --diff --check --config pyproject.toml --skip venv ./
+{%- endif %}
+{%- if cookiecutter.install_darglint %}
 	poetry run darglint --verbosity 2 {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
+{%- endif %}
 
+{%- if cookiecutter.install_mypy -%}
 .PHONY: mypy
 mypy:
 	poetry run mypy --config-file pyproject.toml ./
+{%- endif -%}
 
 .PHONY: check-safety
 check-safety:
@@ -58,12 +61,8 @@ check-safety:
 	poetry run bandit -ll --recursive {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
 
 .PHONY: lint
-lint: test check-codestyle mypy check-safety
+lint: test check-codestyle {% if cookiecutter.install_mypy %}mypy{% endif %} check-safety
 
-.PHONY: update-dev-deps
-update-dev-deps:
-	poetry add -D bandit@latest darglint@latest "isort[colors]@latest" mypy@latest pre-commit@latest pydocstyle@latest pylint@latest pytest@latest pyupgrade@latest safety@latest coverage@latest coverage-badge@latest pytest-html@latest pytest-cov@latest
-	poetry add -D --allow-prereleases black@latest
 
 #* Docker
 # Example: make docker-build VERSION=latest
