@@ -1,14 +1,15 @@
 """This module is called after project is created."""
-from typing import List
-
 import textwrap
 from pathlib import Path
 from shutil import move, rmtree
+from typing import List
 
 # Project root directory
 PROJECT_DIRECTORY = Path.cwd().absolute()
 PROJECT_NAME = "{{ cookiecutter.project_name }}"
-PROJECT_MODULE = "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}"
+PROJECT_MODULE = (
+    "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}"
+)
 CREATE_EXAMPLE_TEMPLATE = "{{ cookiecutter.create_example_template }}"
 
 # Values to generate correct license
@@ -37,7 +38,9 @@ def generate_license(directory: Path, licence: str) -> None:
     rmtree(str(directory / "_licences"))
 
 
-def remove_unused_files(directory: Path, module_name: str, need_to_remove_cli: bool) -> None:
+def remove_unused_files(
+    directory: Path, module_name: str, need_to_remove_cli: bool
+) -> None:
     """Remove unused files.
 
     Args:
@@ -57,7 +60,7 @@ def remove_unused_files(directory: Path, module_name: str, need_to_remove_cli: b
         path.unlink()
 
 
-def print_futher_instuctions(project_name: str, github: str) -> None:
+def print_further_instructions(project_name: str, github: str) -> None:
     """Show user what to do next after project creation.
 
     Args:
@@ -102,7 +105,7 @@ def main() -> None:
         module_name=PROJECT_MODULE,
         need_to_remove_cli=CREATE_EXAMPLE_TEMPLATE != "cli",
     )
-    print_futher_instuctions(project_name=PROJECT_NAME, github=GITHUB_USER)
+    print_further_instructions(project_name=PROJECT_NAME, github=GITHUB_USER)
 
 
 if __name__ == "__main__":
