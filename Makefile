@@ -8,19 +8,12 @@ PYTHONPATH := `pwd`
 poetry-download:
 	pip install poetry
 
-.PHONY: poetry-remove
-poetry-remove:
-	pip uninstall poetry
-
 #* Installation
 .PHONY: install
 install:
 	poetry lock -n && poetry export --without-hashes > requirements.txt
 	poetry install -n
 	-poetry run mypy --install-types --non-interactive hooks tests
-
-.PHONY: pre-commit-install
-pre-commit-install:
 	poetry run pre-commit install
 
 #* Formatters
@@ -59,7 +52,7 @@ lint: test check-codestyle mypy check-safety
 
 .PHONY: update-dev-deps
 update-dev-deps:
-	poetry add -D bandit@latest darglint@latest "isort[colors]@latest" mypy@latest pre-commit@latest pydocstyle@latest pylint@latest pytest@latest pyupgrade@latest safety@latest
+	poetry add -D bandit@latest darglint@latest "isort[colors]@latest" mypy@latest pre-commit@latest pylint@latest pytest@latest safety@latest
 	poetry add -D --allow-prereleases black@latest
 
 #* Cleaning

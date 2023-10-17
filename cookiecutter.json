@@ -9,8 +9,15 @@
   "email": "hello@{{ cookiecutter.organization.lower().replace(' ', '-') }}.com",
   "version": "0.1.0",
   "line_length": 88,
+  "using_tsinghua_image_source": false,
+  "install_black": true,
+  "install_isort": true,
+  "install_pre_commit": true,
+  "install_coverage": true,
+  "install_mypy": false,
+  "install_darglint": false,
+  "install_safety": false,
   "create_example_template": ["cli", "none"],
-
   "_copy_without_render": [
     "poetry.lock"
   ]

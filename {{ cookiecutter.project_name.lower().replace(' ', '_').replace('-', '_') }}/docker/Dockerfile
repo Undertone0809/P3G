@@ -12,7 +12,7 @@ RUN apt-get update && \
 COPY pyproject.toml ./
 
 # Install Poetry
-RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python && \
+RUN pip install poetry \
     cd /usr/local/bin && \
     ln -s /opt/poetry/bin/poetry && \
     poetry config virtualenvs.create false
