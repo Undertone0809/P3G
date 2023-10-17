@@ -58,7 +58,9 @@ def validate_semver(version: str) -> None:
         ValueError: If version is not in semver notation
     """
     if SEMVER_REGEX.fullmatch(version) is None:
-        message = f"ERROR: The `{version}` is not in semver notation (https://semver.org/)"
+        message = (
+            f"ERROR: The `{version}` is not in semver notation (https://semver.org/)"
+        )
         raise ValueError(message)
 
 
@@ -66,7 +68,7 @@ def validate_line_length(line_length: int) -> None:
     """Validate line_length parameter. Length should be between 50 and 300.
 
     Args:
-        line_length: integer paramenter for isort and black formatters
+        line_length: integer parameter for isort and black formatters
 
     Raises:
         ValueError: If line_length isn't between 50 and 300
