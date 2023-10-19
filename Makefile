@@ -3,11 +3,6 @@ SHELL := /usr/bin/env bash
 PYTHON := python
 PYTHONPATH := `pwd`
 
-#* Poetry
-.PHONY: poetry-download
-poetry-download:
-	pip install poetry
-
 #* Installation
 .PHONY: install
 install:
