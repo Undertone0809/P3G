@@ -27,23 +27,16 @@
 cd {{ cookiecutter.project_name }} && git init
 ```
 
-2. If you don't have `Poetry` installed run:
-
-> 1. Makefile only provides a fast initialization and construction method, but this may not be user-friendly for Windows users. There are plans to add special compatibility with Windows in the future, remove makefile, and use cross platforms construction tools.
-> 2. In this command, as the `pip` operation is required, the specific Python configuration may also vary for different users. Some users want to create a virtual environment through venv, while others prefer to use anaconda. Please ensure that your current environment variable Python is the Python environment you are currently using in your project. In this command, I recommend you to pip and install Poetry yourself.
-> 3. Subsequent scripts will all use poetry for operations, so you also need to pay attention to issues with the current Python environment.
-> 4. If you think you cannot solve this problem, please directly copy the commands you need to execute in the makefile and make specific adjustments.
-> 5. makefile may cause some problem when installing, but good for other scenes.
+2. If you don't have `Poetry`. Please activate python of current project and install run:
 
 ```bash
-make poetry-download
+pip install poetry
 ```
 
-3. Initialize poetry and install `pre-commit` hooks:
+3. Initialize poetry and `pre-commit` hooks:
 
 ```bash
 make install
-make pre-commit-install
 ```
 
 If you obtain a timeout error when installing, you can try to append an image source config in `poetry.toml`. The following example is tsinghua image source.
@@ -55,7 +48,7 @@ url = "https://pypi.tuna.tsinghua.edu.cn/simple"
 priority = "default"
 ```
 
-4. Run the codestyle:
+4. Run the codestyle to polish your code:
 
 ```bash
 make codestyle
@@ -188,14 +181,9 @@ poetry run {{ cookiecutter.project_name }} --help
 To download and install Poetry run:
 
 ```bash
-make poetry-download
+pip install poetry
 ```
 
-To uninstall
-
-```bash
-make poetry-remove
-```
 
 </p>
 </details>
@@ -213,7 +201,7 @@ make install
 Pre-commit hooks coulb be installed after `git init` via
 
 ```bash
-make pre-commit-install
+poetry run pre-commit install
 ```
 
 </p>
@@ -239,12 +227,6 @@ make check-codestyle
 ```
 
 > Note: `check-codestyle` uses `isort`, `black` and `darglint` library
-
-Update all dev libraries to the latest version using one comand
-
-```bash
-make update-dev-deps
-```
 
 </p>
 </details>

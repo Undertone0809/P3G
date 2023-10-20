@@ -7,11 +7,6 @@ PYTHONPATH := `pwd`
 IMAGE := {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}
 VERSION := latest
 
-#* Poetry
-.PHONY: poetry-download
-poetry-download:
-	pip install poetry
-
 #* Installation
 .PHONY: install
 install:
@@ -48,20 +43,22 @@ check-codestyle:
 	poetry run darglint --verbosity 2 {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
 {%- endif %}
 
-{%- if cookiecutter.install_mypy -%}
+{% if cookiecutter.install_mypy -%}
 .PHONY: mypy
 mypy:
 	poetry run mypy --config-file pyproject.toml ./
-{%- endif -%}
+{%- endif %}
 
+{%- if cookiecutter.install_safety -%}
 .PHONY: check-safety
 check-safety:
 	poetry check
 	poetry run safety check --full-report
 	poetry run bandit -ll --recursive {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
+{%- endif -%}
 
 .PHONY: lint
-lint: test check-codestyle {% if cookiecutter.install_mypy %}mypy{% endif %} check-safety
+lint: test check-codestyle {% if cookiecutter.install_mypy %}mypy{% endif %} {% if cookiecutter.install_safety %}check-safety{% endif %}
 
 
 #* Docker
