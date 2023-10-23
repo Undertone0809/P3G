@@ -114,13 +114,13 @@ Your project will contain `README.md` file with instructions for development, de
 
 #### Initialize `poetry`
 
-By running `make install`
+By running `pip install poetry & make install`
 
 After you create a project, it will appear in your directory, and will display [a message about how to initialize the project](https://github.com/Undertone0809/python-package-template/tree/main/%7B%7B%20cookiecutter.project_name%20%7D%7D#very-first-steps).
 
 #### Initialize `pre-commit`
 
-By running `make pre-commit-install`. Make sure to set up git first via `git init`.
+`pre-commit` is already installed if you initialize git repo before running `make install`. If it fails without initialization, run `make install` again to install pre-commit to `.git`.
 
 ### Package example
 
