@@ -1,5 +1,7 @@
 # Python Packages Project Generator
 
+[English](README.md) [Chinese](README_zh.md)
+
 <div align="center">
 
 [![Build status](https://github.com/Undertone0809/python-package-template/workflows/build/badge.svg?branch=main&event=push)](https://github.com/Undertone0809/python-package-template/actions?query=workflow%3Abuild)
