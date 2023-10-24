@@ -14,19 +14,8 @@
 [![License](https://img.shields.io/github/license/Undertone0809/python-package-template)](https://github.com/Undertone0809/python-package-template/blob/main/LICENSE)
 ![Coverage Report](assets/images/coverage.svg)
 
-你的下一代 Python 包项目模板
+新一代 Python 项目开发模板
 </div>
-
-> 此版本是 [https://github.com/TezRomacH/python-package-template](https://github.com/TezRomacH/python-package-template) 的分支。原作者 TezRomacH 不再维护该项目，此分支是为了持续维护而创建的。
-
-### TezRomacH/python-package-template 与本项目的区别是什么？
-
-为了提高系统的兼容性和可持续性，本项目有一些计划。
-
-- Windows 兼容性：改进 Makefile 中与 Windows 的兼容性。
-- 新的包功能：使用最新的与 Docking 相关的包功能。
-- 包管理：提供更多的 Python 包版本管理解决方案，以提高不同 Python 版本的兼容性。
-- 提供文档支持（如 Docusaurus）。
 
 ## TL;DR
 
