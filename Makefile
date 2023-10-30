@@ -12,13 +12,13 @@ install:
 	poetry run pre-commit install
 
 #* Formatters
-.PHONY: codestyle
+.PHONY: polish-codestyle
 codestyle:
 	poetry run isort --settings-path pyproject.toml hooks tests
 	poetry run black --config pyproject.toml hooks tests
 
 .PHONY: formatting
-formatting: codestyle
+formatting: polish-codestyle
 
 #* Linting
 .PHONY: test
