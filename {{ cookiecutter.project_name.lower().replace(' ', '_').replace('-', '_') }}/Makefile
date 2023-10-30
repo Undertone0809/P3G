@@ -17,13 +17,13 @@ install:
 {%- endif %}
 
 #* Formatters
-.PHONY: codestyle
+.PHONY: polish-codestyle
 codestyle:
 	poetry run isort --settings-path pyproject.toml --skip .venv ./
 	poetry run black --config pyproject.toml --exclude .venv ./
 
 .PHONY: formatting
-formatting: codestyle
+formatting: polish-codestyle
 
 #* Linting
 .PHONY: test
