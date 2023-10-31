@@ -19,8 +19,8 @@ install:
 #* Formatters
 .PHONY: polish-codestyle
 polish-codestyle:
-	poetry run isort --settings-path pyproject.toml --skip .venv ./
-	poetry run black --config pyproject.toml --exclude .venv ./
+	poetry run isort --settings-path pyproject.toml .
+	poetry run black --config pyproject.toml .
 
 .PHONY: formatting
 formatting: polish-codestyle
@@ -34,10 +34,10 @@ test:
 .PHONY: check-codestyle
 check-codestyle:
 {%- if cookiecutter.install_isort %}
-	poetry run isort --diff --check-only --settings-path pyproject.toml --skip venv ./
+	poetry run isort --diff --check-only --settings-path pyproject.toml .
 {%- endif %}
 {%- if cookiecutter.install_black %}
-	poetry run black --diff --check --config pyproject.toml --skip venv ./
+	poetry run black --diff --check --config pyproject.toml .
 {%- endif %}
 {%- if cookiecutter.install_darglint %}
 	poetry run darglint --verbosity 2 {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
