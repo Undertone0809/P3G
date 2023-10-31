@@ -18,7 +18,7 @@ install:
 
 #* Formatters
 .PHONY: polish-codestyle
-codestyle:
+polish-codestyle:
 	poetry run isort --settings-path pyproject.toml --skip .venv ./
 	poetry run black --config pyproject.toml --exclude .venv ./
 

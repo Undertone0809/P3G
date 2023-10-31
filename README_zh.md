@@ -20,7 +20,7 @@
 ## TL;DR
 
 ```bash
-cookiecutter gh:Undertone0809/python-package-template --checkout v1.0.2
+cookiecutter gh:Undertone0809/python-package-template --checkout v1.0.3
 ```
 
 > 你只需要安装最新版本的 cookiecutter 😉
@@ -69,7 +69,7 @@ pip install -U cookiecutter
 然后进入你想要创建项目的目录，并运行：
 
 ```bash
-cookiecutter gh:Undertone0809/python-package-template --checkout v1.0.2
+cookiecutter gh:Undertone0809/python-package-template --checkout v1.0.3:
 ```
 
 ### 输入变量
