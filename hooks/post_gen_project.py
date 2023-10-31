@@ -76,16 +76,15 @@ def print_further_instructions(project_name: str, github: str) -> None:
 
     2) If you don't have Poetry installed run:
 
-        $ make poetry-download
+        $ pip install poetry
 
     3) Initialize poetry and install pre-commit hooks:
 
         $ make install
-        $ make pre-commit-install
 
     4) Run codestyle:
 
-        $ make codestyle
+        $ make polish-codestyle
 
     5) Upload initial code to GitHub:
 
