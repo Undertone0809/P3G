@@ -175,21 +175,7 @@ poetry run {{ cookiecutter.project_name }} --help
 [`Makefile`](https://github.com/{{ cookiecutter.github_name }}/{{ cookiecutter.project_name }}/blob/master/Makefile) contains a lot of functions for faster development.
 
 <details>
-<summary>1. Download and remove Poetry</summary>
-<p>
-
-To download and install Poetry run:
-
-```bash
-pip install poetry
-```
-
-
-</p>
-</details>
-
-<details>
-<summary>2. Install all dependencies and pre-commit hooks</summary>
+<summary>1. Install all dependencies and pre-commit hooks</summary>
 <p>
 
 Install requirements:
@@ -208,13 +194,13 @@ poetry run pre-commit install
 </details>
 
 <details>
-<summary>3. Codestyle</summary>
+<summary>2. Codestyle</summary>
 <p>
 
 Automatic formatting uses `pyupgrade`, `isort` and `black`.
 
 ```bash
-make codestyle
+make polish-codestyle
 
 # or use synonym
 make formatting
@@ -232,7 +218,7 @@ make check-codestyle
 </details>
 
 <details>
-<summary>4. Code security</summary>
+<summary>3. Code security</summary>
 <p>
 
 ```bash
@@ -249,7 +235,7 @@ make check-safety
 </details>
 
 <details>
-<summary>5. Type checks</summary>
+<summary>4. Type checks</summary>
 <p>
 
 Run `mypy` static type checker
@@ -262,7 +248,7 @@ make mypy
 </details>
 
 <details>
-<summary>6. Tests with coverage badges</summary>
+<summary>5. Tests with coverage badges</summary>
 <p>
 
 Run `pytest`
@@ -275,7 +261,7 @@ make test
 </details>
 
 <details>
-<summary>7. All linters</summary>
+<summary>6. All linters</summary>
 <p>
 
 Of course there is a command to ~~rule~~ run all linters in one:
@@ -294,7 +280,7 @@ make test && make check-codestyle && make mypy && make check-safety
 </details>
 
 <details>
-<summary>8. Docker</summary>
+<summary>7. Docker</summary>
 <p>
 
 ```bash
@@ -319,7 +305,7 @@ More information [about docker](https://github.com/{{ cookiecutter.github_name }
 </details>
 
 <details>
-<summary>9. Cleanup</summary>
+<summary>8. Cleanup</summary>
 <p>
 Delete pycache files
 
