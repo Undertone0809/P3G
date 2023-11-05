@@ -17,6 +17,8 @@
 新一代 Python 项目开发模板
 </div>
 
+> This version is fork from [https://github.com/TezRomacH/python-package-template](https://github.com/TezRomacH/python-package-template). As a comparison, the current project provides more customized functional options and optimization.
+
 ## TL;DR
 
 ```bash

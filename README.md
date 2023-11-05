@@ -17,16 +17,7 @@
 Your next Python package needs a bleeding-edge project structure.
 </div>
 
-> This version is branch of [https://github.com/TezRomacH/python-package-template](https://github.com/TezRomacH/python-package-template). The author TezRomacH no longer maintains it, this branch has been created for continuous maintenance.  
-
-### What are the differences between TezRomacH/python-package-template?
-
-In order to improve system compatibility and sustainability, there are some plans in this repo.
-
-- Window compatibility: Improving compatibility with windows in makefiles.
-- New packages features: The latest features of docking related packages.
-- Package Management: Provide more solutions for Python package version management to improve the compatibility of different python version.
-- Provide documentation support(like Docusaurus).
+> This version is fork from [https://github.com/TezRomacH/python-package-template](https://github.com/TezRomacH/python-package-template). As a comparison, the current project provides more customized functional options and optimization.
 
 ## TL;DR
 

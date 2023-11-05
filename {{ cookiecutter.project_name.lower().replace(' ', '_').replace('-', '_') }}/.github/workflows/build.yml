@@ -10,7 +10,7 @@ jobs:
         python-version: ["{% endraw %}{{ cookiecutter.minimal_python_version }}"{%- if cookiecutter.minimal_python_version != '3.9' -%}, "3.9"{% endif %}]{% raw %}
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4.7.1
       with:
