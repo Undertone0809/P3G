@@ -26,8 +26,8 @@ pre-commit-uninstall:
 #* Formatters
 .PHONY: polish-codestyle
 polish-codestyle:
-	poetry run ruff format --config pyproject.toml .
-	poetry run ruff check --fix --config pyproject.toml .
+	poetry run ruff format --config pyproject.toml hooks tests
+	poetry run ruff check --fix --config pyproject.toml hooks tests
 
 .PHONY: formatting
 formatting: polish-codestyle
@@ -40,8 +40,8 @@ test:
 
 .PHONY: check-codestyle
 check-codestyle:
-	poetry run ruff format --check --config pyproject.toml .
-	poetry run ruff check --config pyproject.toml .
+	poetry run isort --diff --check-only --settings-path pyproject.toml hooks tests
+	poetry run black --diff --check --config pyproject.toml hooks tests
 	poetry run darglint --verbosity 2 hooks tests
 
 .PHONY: check-safety

@@ -44,7 +44,7 @@ def validate_project_name(project_name: str) -> None:
         ValueError: If project_name is not a valid Python module name
     """
     if MODULE_REGEX.fullmatch(project_name) is None:
-        message = f"ERROR: The project name `{project_name}` is not a valid Python module name."
+        message = f"ERROR: The project name `{project_name}` is not a valid Python module name."  # noqa
         raise ValueError(message)
 
 
