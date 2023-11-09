@@ -28,8 +28,8 @@ install:
 #* Formatters
 .PHONY: polish-codestyle
 polish-codestyle:
-	poetry run isort --settings-path pyproject.toml .
-	poetry run black --config pyproject.toml .
+	poetry run ruff format --config pyproject.toml .
+	poetry run ruff check --fix --config pyproject.toml .
 
 .PHONY: formatting
 formatting: polish-codestyle
@@ -42,33 +42,25 @@ test:
 
 .PHONY: check-codestyle
 check-codestyle:
-{%- if cookiecutter.install_isort %}
-	poetry run isort --diff --check-only --settings-path pyproject.toml .
-{%- endif %}
-{%- if cookiecutter.install_black %}
-	poetry run black --diff --check --config pyproject.toml .
-{%- endif %}
+	poetry run ruff format --check --config pyproject.toml .
+	poetry run ruff check --config pyproject.toml .
 {%- if cookiecutter.install_darglint %}
 	poetry run darglint --verbosity 2 {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
 {%- endif %}
 
-{% if cookiecutter.install_mypy -%}
-.PHONY: mypy
-mypy:
-	poetry run mypy --config-file pyproject.toml ./
-{%- endif %}
-
-{%- if cookiecutter.install_safety -%}
+{% if cookiecutter.install_safety -%}
 .PHONY: check-safety
 check-safety:
 	poetry check
 	poetry run safety check --full-report
 	poetry run bandit -ll --recursive {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
-{%- endif -%}
+{%- endif %}
 
 .PHONY: lint
-lint: test check-codestyle {% if cookiecutter.install_mypy %}mypy{% endif %} {% if cookiecutter.install_safety %}check-safety{% endif %}
+lint: test check-codestyle {% if cookiecutter.install_safety %}check-safety{% endif %}
 
+.PHONY: lint-fix
+lint-fix: polish-codestyle
 
 #* Docker
 # Example: make docker-build VERSION=latest
