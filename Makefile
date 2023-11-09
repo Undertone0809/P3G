@@ -16,14 +16,18 @@ endif
 install:
 	poetry lock -n && poetry export --without-hashes > requirements.txt
 	poetry install -n
-	-poetry run mypy --install-types --non-interactive hooks tests
 	poetry run pre-commit install
+
+#* Uninstall pre-commit
+.PHONY: pre-commit-uninstall
+pre-commit-uninstall:
+	poetry run pre-commit uninstall
 
 #* Formatters
 .PHONY: polish-codestyle
 polish-codestyle:
-	poetry run isort --settings-path pyproject.toml hooks tests
-	poetry run black --config pyproject.toml hooks tests
+	poetry run ruff format --config pyproject.toml hooks tests
+	poetry run ruff check --fix --config pyproject.toml hooks tests
 
 .PHONY: formatting
 formatting: polish-codestyle
@@ -40,10 +44,6 @@ check-codestyle:
 	poetry run black --diff --check --config pyproject.toml hooks tests
 	poetry run darglint --verbosity 2 hooks tests
 
-.PHONY: mypy
-mypy:
-	poetry run mypy --config-file pyproject.toml hooks tests
-
 .PHONY: check-safety
 check-safety:
 	poetry check
@@ -51,11 +51,14 @@ check-safety:
 	poetry run bandit -ll --recursive hooks
 
 .PHONY: lint
-lint: test check-codestyle mypy check-safety
+lint: test check-codestyle check-safety
+
+.PHONY: lint-fix
+lint-fix: polish-codestyle
 
 .PHONY: update-dev-deps
 update-dev-deps:
-	poetry add -D bandit@latest darglint@latest "isort[colors]@latest" mypy@latest pre-commit@latest pylint@latest pytest@latest safety@latest
+	poetry add -D bandit@latest darglint@latest "isort[colors]@latest" pre-commit@latest pylint@latest pytest@latest safety@latest
 	poetry add -D --allow-prereleases black@latest
 
 #* Cleaning

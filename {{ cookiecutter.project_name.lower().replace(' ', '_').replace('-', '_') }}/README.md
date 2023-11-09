@@ -124,9 +124,9 @@ Articles:
 
 - Supports for `Python {{ cookiecutter.minimal_python_version }}` and higher.
 - [`Poetry`](https://python-poetry.org/) as the dependencies manager. See configuration in [`pyproject.toml`](https://github.com/{{ cookiecutter.github_name }}/{{ cookiecutter.project_name }}/blob/master/pyproject.toml) and [`setup.cfg`](https://github.com/{{ cookiecutter.github_name }}/{{ cookiecutter.project_name }}/blob/master/setup.cfg).
-- Automatic codestyle with [`black`](https://github.com/psf/black), [`isort`](https://github.com/timothycrosley/isort) and [`pyupgrade`](https://github.com/asottile/pyupgrade).
+- Faster formatter tool, automatic codestyle with [`ruff`](https://github.com/astral-sh/ruff) to replace [`black`](https://github.com/psf/black), [`isort`](https://github.com/timothycrosley/isort) and [`pyupgrade`](https://github.com/asottile/pyupgrade).
 - Ready-to-use [`pre-commit`](https://pre-commit.com/) hooks with code-formatting.
-- Type checks with [`mypy`](https://mypy.readthedocs.io); docstring checks with [`darglint`](https://github.com/terrencepreilly/darglint); security checks with [`safety`](https://github.com/pyupio/safety) and [`bandit`](https://github.com/PyCQA/bandit)
+- Type checks with  [`ruff`](https://github.com/astral-sh/ruff); docstring checks with [`darglint`](https://github.com/terrencepreilly/darglint); security checks with [`safety`](https://github.com/pyupio/safety) and [`bandit`](https://github.com/PyCQA/bandit)
 - Testing with [`pytest`](https://docs.pytest.org/en/latest/).
 - Ready-to-use [`.editorconfig`](https://github.com/{{ cookiecutter.github_name }}/{{ cookiecutter.project_name }}/blob/master/.editorconfig), [`.dockerignore`](https://github.com/{{ cookiecutter.github_name }}/{{ cookiecutter.project_name }}/blob/master/.dockerignore), and [`.gitignore`](https://github.com/{{ cookiecutter.github_name }}/{{ cookiecutter.project_name }}/blob/master/.gitignore). You don't have to worry about those things.
 
@@ -174,6 +174,7 @@ poetry run {{ cookiecutter.project_name }} --help
 
 [`Makefile`](https://github.com/{{ cookiecutter.github_name }}/{{ cookiecutter.project_name }}/blob/master/Makefile) contains a lot of functions for faster development.
 
+
 <details>
 <summary>1. Install all dependencies and pre-commit hooks</summary>
 <p>
@@ -187,17 +188,17 @@ make install
 Pre-commit hooks coulb be installed after `git init` via
 
 ```bash
-poetry run pre-commit install
+make pre-commit-install
 ```
 
 </p>
 </details>
 
 <details>
-<summary>2. Codestyle</summary>
+<summary>2. Codestyle and type checks</summary>
 <p>
 
-Automatic formatting uses `pyupgrade`, `isort` and `black`.
+Automatic formatting uses `ruff`.
 
 ```bash
 make polish-codestyle
@@ -212,7 +213,7 @@ Codestyle checks only, without rewriting files:
 make check-codestyle
 ```
 
-> Note: `check-codestyle` uses `isort`, `black` and `darglint` library
+> Note: `check-codestyle` uses `ruff` and `darglint` library
 
 </p>
 </details>
@@ -235,20 +236,7 @@ make check-safety
 </details>
 
 <details>
-<summary>4. Type checks</summary>
-<p>
-
-Run `mypy` static type checker
-
-```bash
-make mypy
-```
-
-</p>
-</details>
-
-<details>
-<summary>5. Tests with coverage badges</summary>
+<summary>4. Tests with coverage badges</summary>
 <p>
 
 Run `pytest`
@@ -261,10 +249,10 @@ make test
 </details>
 
 <details>
-<summary>6. All linters</summary>
+<summary>5. All linters</summary>
 <p>
 
-Of course there is a command to ~~rule~~ run all linters in one:
+Of course there is a command to run all linters in one:
 
 ```bash
 make lint
@@ -273,14 +261,14 @@ make lint
 the same as:
 
 ```bash
-make test && make check-codestyle && make mypy && make check-safety
+make check-codestyle && make test && make check-safety
 ```
 
 </p>
 </details>
 
 <details>
-<summary>7. Docker</summary>
+<summary>6. Docker</summary>
 <p>
 
 ```bash
@@ -299,13 +287,13 @@ Remove docker image with
 make docker-remove
 ```
 
-More information [about docker](https://github.com/{{ cookiecutter.github_name }}/{{ cookiecutter.project_name }}/tree/master/docker).
+More information [about docker](https://github.com/Undertone0809/python-package-template/tree/main/%7B%7B%20cookiecutter.project_name%20%7D%7D/docker).
 
 </p>
 </details>
 
 <details>
-<summary>8. Cleanup</summary>
+<summary>7. Cleanup</summary>
 <p>
 Delete pycache files
 

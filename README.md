@@ -17,12 +17,12 @@
 Your next Python package needs a bleeding-edge project structure.
 </div>
 
-> This version is fork from [https://github.com/TezRomacH/python-package-template](https://github.com/TezRomacH/python-package-template). As a comparison, the current project provides more customized functional options and optimization.
+> This version is fork from [https://github.com/TezRomacH/python-package-template](https://github.com/TezRomacH/python-package-template). As a comparison, the current project provides better compatibility with Windows and faster lint construction.
 
 ## TL;DR
 
 ```bash
-cookiecutter gh:Undertone0809/python-package-template --checkout v1.0.4
+cookiecutter gh:Undertone0809/python-package-template --checkout v1.1.0
 ```
 
 > All you need is the latest version of cookiecutter 😉
@@ -35,11 +35,12 @@ In this [cookiecutter 🍪](https://github.com/cookiecutter/cookiecutter) templa
 
 - Supports `Python 3.7` and higher.
 - [`Poetry`](https://python-poetry.org/) as a dependencies manager. See configuration in [`pyproject.toml`](https://github.com/Undertone0809/python-package-template/blob/main/%7B%7B%20cookiecutter.project_name%20%7D%7D/pyproject.toml) and [`setup.cfg`](https://github.com/Undertone0809/python-package-template/blob/main/%7B%7B%20cookiecutter.project_name%20%7D%7D/setup.cfg).
-- Automatic codestyle with [`black`](https://github.com/psf/black), [`isort`](https://github.com/timothycrosley/isort) and [`pyupgrade`](https://github.com/asottile/pyupgrade).
+- Faster formatter tool, automatic codestyle with [`ruff`](https://github.com/astral-sh/ruff) to replace [`black`](https://github.com/psf/black), [`isort`](https://github.com/timothycrosley/isort) and [`pyupgrade`](https://github.com/asottile/pyupgrade).
 - Ready-to-use [`pre-commit`](https://pre-commit.com/) hooks with code-formatting.
-- Type checks with [`mypy`](https://mypy.readthedocs.io); docstring checks with [`darglint`](https://github.com/terrencepreilly/darglint); security checks with [`safety`](https://github.com/pyupio/safety) and [`bandit`](https://github.com/PyCQA/bandit)
+- Type checks with  [`ruff`](https://github.com/astral-sh/ruff); docstring checks with [`darglint`](https://github.com/terrencepreilly/darglint); security checks with [`safety`](https://github.com/pyupio/safety) and [`bandit`](https://github.com/PyCQA/bandit)
 - Testing with [`pytest`](https://docs.pytest.org/en/latest/).
 - Ready-to-use [`.editorconfig`](https://github.com/Undertone0809/python-package-template/blob/main/%7B%7B%20cookiecutter.project_name%20%7D%7D/.editorconfig), [`.dockerignore`](https://github.com/Undertone0809/python-package-template/blob/main/%7B%7B%20cookiecutter.project_name%20%7D%7D/.dockerignore), and [`.gitignore`](https://github.com/Undertone0809/python-package-template/blob/main/%7B%7B%20cookiecutter.project_name%20%7D%7D/.gitignore). You don't have to worry about those things.
+- The ability of building docker.
 
 ### Deployment features
 
@@ -161,26 +162,7 @@ Building a new version of the application contains steps:
 [`Makefile`](https://github.com/Undertone0809/python-package-template/blob/main/%7B%7B%20cookiecutter.project_name%20%7D%7D/Makefile) contains a lot of functions for faster development.
 
 <details>
-<summary>1. Download and remove Poetry</summary>
-<p>
-
-To download and install Poetry run:
-
-```bash
-make poetry-download
-```
-
-To uninstall
-
-```bash
-make poetry-remove
-```
-
-</p>
-</details>
-
-<details>
-<summary>2. Install all dependencies and pre-commit hooks</summary>
+<summary>1. Install all dependencies and pre-commit hooks</summary>
 <p>
 
 Install requirements:
@@ -199,13 +181,13 @@ make pre-commit-install
 </details>
 
 <details>
-<summary>3. Codestyle</summary>
+<summary>2. Codestyle and type checks</summary>
 <p>
 
-Automatic formatting uses `pyupgrade`, `isort` and `black`.
+Automatic formatting uses `ruff`.
 
 ```bash
-make codestyle
+make polish-codestyle
 
 # or use synonym
 make formatting
@@ -217,19 +199,13 @@ Codestyle checks only, without rewriting files:
 make check-codestyle
 ```
 
-> Note: `check-codestyle` uses `isort`, `black` and `darglint` library
-
-Update all dev libraries to the latest version using one comand
-
-```bash
-make update-dev-deps
-```
+> Note: `check-codestyle` uses `ruff` and `darglint` library
 
 </p>
 </details>
 
 <details>
-<summary>4. Code security</summary>
+<summary>3. Code security</summary>
 <p>
 
 ```bash
@@ -246,20 +222,7 @@ make check-safety
 </details>
 
 <details>
-<summary>5. Type checks</summary>
-<p>
-
-Run `mypy` static type checker
-
-```bash
-make mypy
-```
-
-</p>
-</details>
-
-<details>
-<summary>6. Tests with coverage badges</summary>
+<summary>4. Tests with coverage badges</summary>
 <p>
 
 Run `pytest`
@@ -272,10 +235,10 @@ make test
 </details>
 
 <details>
-<summary>7. All linters</summary>
+<summary>5. All linters</summary>
 <p>
 
-Of course there is a command to ~~rule~~ run all linters in one:
+Of course there is a command to run all linters in one:
 
 ```bash
 make lint
@@ -284,14 +247,14 @@ make lint
 the same as:
 
 ```bash
-make test && make check-codestyle && make mypy && make check-safety
+make check-codestyle && make test && make check-safety
 ```
 
 </p>
 </details>
 
 <details>
-<summary>8. Docker</summary>
+<summary>6. Docker</summary>
 <p>
 
 ```bash
@@ -316,7 +279,7 @@ More information [about docker](https://github.com/Undertone0809/python-package-
 </details>
 
 <details>
-<summary>9. Cleanup</summary>
+<summary>7. Cleanup</summary>
 <p>
 Delete pycache files
 
@@ -407,7 +370,6 @@ Here is a list of things that have yet to be implemented:
 - [Hall of fame](https://github.com/sourcerer-io/hall-of-fame) from `Sourcerer`.
 - Some advanced Python linting (?).
 - End-to-end testing and validation of the cookiecutter template.
-- Add [`Invoke`](http://www.pyinvoke.org/)
 - Add [`Earthly`](https://earthly.dev/)
 
 ## 🛡 License
