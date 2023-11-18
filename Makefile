@@ -16,6 +16,10 @@ endif
 install:
 	poetry lock -n && poetry export --without-hashes > requirements.txt
 	poetry install -n
+
+#* Install pre-commit
+.PHONY: pre-commit-install
+pre-commit-install:
 	poetry run pre-commit install
 
 #* Uninstall pre-commit
