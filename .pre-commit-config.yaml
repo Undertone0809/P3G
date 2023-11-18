@@ -1,5 +1,5 @@
 default_language_version:
-  python: python3.7
+  python: python3.10
 
 default_stages: [commit, push]
 
@@ -8,7 +8,6 @@ repos:
     rev: v2.5.0
     hooks:
       - id: check-yaml
-        exclude: ^{{ cookiecutter.project_name }}/.github/
       - id: end-of-file-fixer
         exclude: LICENSE
 
@@ -17,7 +16,6 @@ repos:
       - id: check-codestyle
         name: check-codestyle
         entry: make check-codestyle
-        exclude: ^{{ cookiecutter.project_name }}/
         types: [python]
         language: system
 
@@ -26,6 +24,5 @@ repos:
       - id: test
         name: test
         entry: make test
-        exclude: ^{{ cookiecutter.project_name }}/
         types: [python]
         language: system
