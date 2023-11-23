@@ -44,8 +44,8 @@ test:
 
 .PHONY: check-codestyle
 check-codestyle:
-	poetry run isort --diff --check-only --settings-path pyproject.toml hooks tests
-	poetry run black --diff --check --config pyproject.toml hooks tests
+	poetry run ruff format --check --config pyproject.toml hooks tests
+	poetry run ruff check --config pyproject.toml hooks tests
 	poetry run darglint --verbosity 2 hooks tests
 
 .PHONY: check-safety
