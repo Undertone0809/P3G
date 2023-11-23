@@ -48,9 +48,9 @@ ruff = "^0.1.4"
 black = "^22.12"
 isort = {extras = ["colors"], version = "^5.10.1"}
 
+[tool.ruff]
 # https://beta.ruff.rs/docs/settings/
 # https://docs.astral.sh/ruff/configuration/
-[tool.ruff]
 line-length = 88
 
 # https://beta.ruff.rs/docs/rules/
