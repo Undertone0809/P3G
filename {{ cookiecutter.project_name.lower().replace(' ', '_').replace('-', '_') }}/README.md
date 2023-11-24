@@ -27,9 +27,18 @@
 cd {{ cookiecutter.project_name }} && git init
 ```
 
-2. If you don't have `Poetry`. Please activate python of current project and install run:
+2. If you don't have `Poetry`. 
+
+Conda environment is is recommended.
 
 ```bash
+conda create -n {{ cookiecutter.project_name }} python==3.10
+```
+
+Please activate python of current project and install run:
+
+```bash
+conda activate {{ cookiecutter.project_name }}
 pip install poetry
 ```
 
@@ -51,7 +60,7 @@ priority = "default"
 4. Run the codestyle to polish your code:
 
 ```bash
-make codestyle
+make polish-codestyle
 ```
 
 5. Upload initial code to GitHub:
@@ -146,19 +155,24 @@ Articles:
 - [`Stale bot`](https://github.com/apps/stale) that closes abandoned issues after a period of inactivity. (You will only [need to setup free plan](https://github.com/marketplace/stale)). Configuration is [here](https://github.com/{{ cookiecutter.github_name }}/{{ cookiecutter.project_name }}/blob/master/.github/.stale.yml).
 - [Semantic Versions](https://semver.org/) specification with [`Release Drafter`](https://github.com/marketplace/actions/release-drafter).
 
-## Installation
+## Installation locally
+
+> If you want to push your code to github repo, you can delete upper parts from [Very first steps](#very-first-steps) to [Open source community features](#open-source-community-features), [Installation Locally](#installation-locally) is for user.
+
+Conda package manager is recommended. Create a conda environment.
 
 ```bash
-pip install -U {{ cookiecutter.project_name }}
+conda create -n {{ cookiecutter.project_name }} python==3.10
 ```
 
-or install with `Poetry`
+Activate conda environment and install poetry
 
 ```bash
-poetry add {{ cookiecutter.project_name }}
+conda activate {{ cookiecutter.project_name }}
+pip install poetry
 ```
 
-{% if cookiecutter.create_example_template == 'cli' -%}Then you can run
+{% if cookiecutter.create_example_template == 'cli' -%}Then you can run the client using the following command:
 
 ```bash
 {{ cookiecutter.project_name }} --help
@@ -221,6 +235,8 @@ make check-codestyle
 <details>
 <summary>3. Code security</summary>
 <p>
+
+> If this command is not selected during installation, it cannnot be used.
 
 ```bash
 make check-safety
