@@ -36,7 +36,7 @@ cookiecutter = "^1.7.3"
 [tool.poetry.dev-dependencies]
 bandit = "^1.7.1"
 darglint = "^1.8.1"
-pre-commit = "^2.15.0"
+pre-commit = "^2.21.0"
 pydocstyle = "^6.1.1"
 safety = "^2.3.5"
 pytest = "^7.4.3"
