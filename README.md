@@ -22,7 +22,7 @@ Your next Python package needs a bleeding-edge project structure.
 ## TL;DR
 
 ```bash
-cookiecutter gh:Undertone0809/python-package-template --checkout v1.1.3
+cookiecutter gh:Undertone0809/python-package-template --checkout v1.1.4
 ```
 
 > All you need is the latest version of cookiecutter 😉
@@ -71,7 +71,7 @@ pip install -U cookiecutter
 then go to a directory where you want to create your project and run:
 
 ```bash
-cookiecutter gh:Undertone0809/python-package-template --checkout v1.1.3
+cookiecutter gh:Undertone0809/python-package-template --checkout v1.1.4
 ```
 
 ### Input variables
