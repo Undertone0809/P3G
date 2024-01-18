@@ -8,7 +8,7 @@ from typing import List
 PROJECT_DIRECTORY = Path.cwd().absolute()
 PROJECT_NAME = "{{ cookiecutter.project_name }}"
 PROJECT_MODULE = (
-    "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}"
+    "{{ cookiecutter.project_name.lower().replace(' ', '_') }}"
 )
 CREATE_EXAMPLE_TEMPLATE = "{{ cookiecutter.create_example_template }}"
 
@@ -84,7 +84,7 @@ def print_further_instructions(project_name: str, github: str) -> None:
 
     4) Run codestyle:
 
-        $ make polish-codestyle
+        $ make formatting
 
     5) Upload initial code to GitHub:
 
