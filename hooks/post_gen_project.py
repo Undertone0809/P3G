@@ -7,9 +7,7 @@ from typing import List
 # Project root directory
 PROJECT_DIRECTORY = Path.cwd().absolute()
 PROJECT_NAME = "{{ cookiecutter.project_name }}"
-PROJECT_MODULE = (
-    "{{ cookiecutter.project_name.lower().replace(' ', '_') }}"
-)
+PROJECT_MODULE = "{{ cookiecutter.project_name.lower().replace(' ', '_') }}"
 CREATE_EXAMPLE_TEMPLATE = "{{ cookiecutter.create_example_template }}"
 
 # Values to generate correct license
