@@ -77,6 +77,14 @@ git push -u origin main
 
 - Set up [Dependabot](https://docs.github.com/en/github/administering-a-repository/enabling-and-disabling-version-updates#enabling-github-dependabot-version-updates) to ensure you have the latest dependencies.
 - Set up [Stale bot](https://github.com/apps/stale) for automatic issue closing.
+- Set up [first-interaction]() to welcome new contributors.
+
+> ❗ **first-interaction** requires `pull_requests:write`, but by default `GITHUB_TOKEN` has this value set to read-only. You need to do the following to enable it:
+> - Go to the repository settings
+> - Open the "Actions" tab
+> - Click on "Read and write permissions" and enable "Actions: Read and write permissions"
+> ![img.png](assets/images/img_1.png)
+
 
 ### Poetry
 
@@ -209,7 +217,7 @@ make pre-commit-install
 </details>
 
 <details>
-<summary>2. Codestyle and type checks</summary>
+<summary>Codestyle and type checks</summary>
 <p>
 
 Automatic formatting uses `ruff`.
@@ -233,7 +241,7 @@ make check-codestyle
 </details>
 
 <details>
-<summary>3. Code security</summary>
+<summary>Code security</summary>
 <p>
 
 > If this command is not selected during installation, it cannnot be used.
@@ -252,7 +260,7 @@ make check-safety
 </details>
 
 <details>
-<summary>4. Tests with coverage badges</summary>
+<summary>Tests with coverage badges</summary>
 <p>
 
 Run `pytest`
@@ -265,7 +273,7 @@ make test
 </details>
 
 <details>
-<summary>5. All linters</summary>
+<summary>All linters</summary>
 <p>
 
 Of course there is a command to run all linters in one:
@@ -284,7 +292,7 @@ make check-codestyle && make test && make check-safety
 </details>
 
 <details>
-<summary>6. Docker</summary>
+<summary>Docker</summary>
 <p>
 
 ```bash
@@ -309,7 +317,7 @@ More information [about docker](https://github.com/Undertone0809/python-package-
 </details>
 
 <details>
-<summary>7. Cleanup</summary>
+<summary>Cleanup</summary>
 <p>
 Delete pycache files
 
