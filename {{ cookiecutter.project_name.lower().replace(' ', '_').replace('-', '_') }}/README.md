@@ -75,9 +75,14 @@ git push -u origin main
 
 ### Set up bots
 
+When you create this repository, you have already set up the following bots, you can use it in relevant GitHub repository.
+
 - Set up [Dependabot](https://docs.github.com/en/github/administering-a-repository/enabling-and-disabling-version-updates#enabling-github-dependabot-version-updates) to ensure you have the latest dependencies.
+
+> Dependabot will create a pull request to update the dependencies. You can also enable it to automatically merge the pull request after the CI/CD passes. Click [here](https://github.com/Undertone0809/python-package-template/issues/95) to see the detail. 
+
 - Set up [Stale bot](https://github.com/apps/stale) for automatic issue closing.
-- Set up [first-interaction]() to welcome new contributors.
+- Set up [first-interaction](./.github/workflows/greetings.yml) to welcome new contributors.
 
 > ❗ **first-interaction** requires `pull_requests:write`, but by default `GITHUB_TOKEN` has this value set to read-only. You need to do the following to enable it:
 > - Go to the repository settings
