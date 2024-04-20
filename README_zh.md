@@ -19,13 +19,6 @@
 
 > 这个版本是从 [https://github.com/TezRomacH/python-package-template](https://github.com/TezRomacH/python-package-template) 派生的。与原项目相比，当前项目提供了更好的 Windows 兼容性和更快的 lint 构建。
 
-```bash
-pip install cookiecutter
-cookiecutter gh:Undertone0809/python-package-template --checkout v1.1.10
-```
-
-> 你所需要的只是最新版本的 cookiecutter 😉
-
 ## 🚀 特性
 
 在这个 [cookiecutter 🍪](https://github.com/cookiecutter/cookiecutter) 模板中，我们结合了最先进的库和 Python 最佳开发实践。
@@ -70,7 +63,7 @@ pip install -U cookiecutter
 然后转到你想创建项目的目录并运行：
 
 ```bash
-cookiecutter gh:Undertone0809/python-package-template --checkout v1.1.10
+cookiecutter gh:Undertone0809/3PG --checkout v1.2.0
 ```
 
 ### 输入变量

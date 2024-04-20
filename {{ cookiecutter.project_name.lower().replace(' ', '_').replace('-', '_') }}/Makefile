@@ -11,65 +11,52 @@ else
     TEST_COMMAND := PYTHONPATH=$(PYTHONPATH) poetry run pytest -c pyproject.toml --cov-report=html --cov={{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests/
 endif
 
-
 #* Docker variables
 IMAGE := {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}
 VERSION := latest
 
-#* Installation
-.PHONY: install
+.PHONY: lock install {% if cookiecutter.install_pre_commit %}pre-commit-install{% endif %} polish-codestyle formatting test check-codestyle lint docker-build docker-remove cleanup help
+
+lock:
+	poetry lock -n && poetry export --without-hashes > requirements.txt
+
 install:
 	poetry lock -n && poetry export --without-hashes > requirements.txt
 	poetry install -n
 
-
 {%- if cookiecutter.install_pre_commit %}
-.PHONY: pre-commit-install
 pre-commit-install:
 	poetry run pre-commit install
 {%- endif %}
 
-#* Formatters
-.PHONY: polish-codestyle
 polish-codestyle:
 	poetry run ruff format --config pyproject.toml .
 	poetry run ruff check --fix --config pyproject.toml .
 
-.PHONY: formatting
 formatting: polish-codestyle
+format: polish-codestyle
 
-#* Linting
-.PHONY: test
 test:
 	$(TEST_COMMAND)
 	poetry run coverage-badge -o assets/images/coverage.svg -f
 
-.PHONY: check-codestyle
 check-codestyle:
 	poetry run ruff format --check --config pyproject.toml .
 	poetry run ruff check --config pyproject.toml .
 {%- if cookiecutter.install_darglint %}
 	poetry run darglint --verbosity 2 {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
 {%- endif %}
-
-{% if cookiecutter.install_safety -%}
-.PHONY: check-safety
+{%- if cookiecutter.install_safety -%}
 check-safety:
 	poetry check
 	poetry run safety check --full-report
 	poetry run bandit -ll --recursive {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
-{%- endif %}
+{%- endif -%}
 
-.PHONY: lint
 lint: test check-codestyle {% if cookiecutter.install_safety %}check-safety{% endif %}
 
-.PHONY: lint-fix
-lint-fix: polish-codestyle
-
-#* Docker
 # Example: make docker-build VERSION=latest
 # Example: make docker-build IMAGE=some_name VERSION={{ cookiecutter.version }}
-.PHONY: docker-build
 docker-build:
 	@echo Building docker $(IMAGE):$(VERSION) ...
 	docker build \
@@ -78,35 +65,30 @@ docker-build:
 
 # Example: make docker-remove VERSION=latest
 # Example: make docker-remove IMAGE=some_name VERSION={{ cookiecutter.version }}
-.PHONY: docker-remove
 docker-remove:
 	@echo Removing docker $(IMAGE):$(VERSION) ...
 	docker rmi -f $(IMAGE):$(VERSION)
 
-#* Cleaning
-.PHONY: pycache-remove
-pycache-remove:
+cleanup:
 	find . | grep -E "(__pycache__|\.pyc|\.pyo$$)" | xargs rm -rf
-
-.PHONY: dsstore-remove
-dsstore-remove:
 	find . | grep -E ".DS_Store" | xargs rm -rf
-
-.PHONY: mypycache-remove
-mypycache-remove:
 	find . | grep -E ".mypy_cache" | xargs rm -rf
-
-.PHONY: ipynbcheckpoints-remove
-ipynbcheckpoints-remove:
 	find . | grep -E ".ipynb_checkpoints" | xargs rm -rf
-
-.PHONY: pytestcache-remove
-pytestcache-remove:
 	find . | grep -E ".pytest_cache" | xargs rm -rf
-
-.PHONY: build-remove
-build-remove:
 	rm -rf build/
 
-.PHONY: cleanup
-cleanup: pycache-remove dsstore-remove mypycache-remove ipynbcheckpoints-remove pytestcache-remove
+help:
+	@echo "lock                                      Lock the dependencies."
+	@echo "install                                   Install the project dependencies."
+{%- if cookiecutter.install_pre_commit %}
+	@echo "pre-commit-install                        Install the pre-commit hooks."
+{%- endif %}
+	@echo "polish-codestyle                          Format the codebase."
+	@echo "formatting                                Format the codebase."
+	@echo "test                                      Run the tests."
+	@echo "check-codestyle                           Check the codebase for style issues."
+	@echo "lint                                      Run the tests and check the codebase for style issues."
+	@echo "docker-build                              Build the docker image."
+	@echo "docker-remove                             Remove the docker image."
+	@echo "cleanup                                   Clean the project directory."
+	@echo "help                                      Display this help message."
