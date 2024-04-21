@@ -63,7 +63,7 @@ pip install -U cookiecutter
 然后转到你想创建项目的目录并运行：
 
 ```bash
-cookiecutter gh:Undertone0809/3PG --checkout v1.2.0
+cookiecutter gh:Undertone0809/3PG --checkout v1.2.1
 ```
 
 ### 输入变量

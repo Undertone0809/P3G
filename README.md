@@ -25,7 +25,7 @@ If you don't want to read the whole README, just click the `Use this template` b
 
 ```bash
 pip install cookiecutter
-cookiecutter gh:Undertone0809/3PG --checkout v1.2.0
+cookiecutter gh:Undertone0809/3PG --checkout v1.2.1
 ```
 
 ## 🚀 Features
@@ -72,7 +72,7 @@ pip install -U cookiecutter
 then go to a directory where you want to create your project and run:
 
 ```bash
-cookiecutter gh:Undertone0809/3PG --checkout v1.2.0
+cookiecutter gh:Undertone0809/3PG --checkout v1.2.1
 ```
 
 ### Input variables
