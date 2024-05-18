@@ -98,7 +98,7 @@ def print_further_instructions(project_name: str, github: str) -> None:
         $ git branch -M main
         $ git remote add origin https://github.com/{github}/{project_name}.git
         $ git push -u origin main
-    """ # noqa
+    """  # noqa
     print(textwrap.dedent(message))
 
 

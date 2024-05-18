@@ -5,10 +5,10 @@ OS := $(shell python -c "import sys; print(sys.platform)")
 
 ifeq ($(OS),win32)
 	PYTHONPATH := $(shell python -c "import os; print(os.getcwd())")
-    TEST_COMMAND := set PYTHONPATH=$(PYTHONPATH) && poetry run pytest -c pyproject.toml --cov-report=html --cov=hooks tests/
+	TEST_COMMAND := set PYTHONPATH=$(PYTHONPATH) && poetry run pytest -c pyproject.toml --cov-report=html --cov=hooks tests/
 else
 	PYTHONPATH := `pwd`
-    TEST_COMMAND := PYTHONPATH=$(PYTHONPATH) poetry run pytest -c pyproject.toml --cov-report=html --cov=hooks tests/
+  TEST_COMMAND := PYTHONPATH=$(PYTHONPATH) poetry run pytest -c pyproject.toml --cov-report=html --cov=hooks tests/
 endif
 
 .PHONY: lock install pre-commit-install pre-commit-uninstall polish-codestyle formatting format test check-codestyle check-safety lint help
@@ -24,8 +24,8 @@ pre-commit-uninstall:
 	poetry run pre-commit uninstall
 
 polish-codestyle:
-	poetry run ruff format --config pyproject.toml hooks tests
-	poetry run ruff check --fix --config pyproject.toml hooks tests
+	poetry run ruff format --config pyproject.toml hooks tests p3g
+	poetry run ruff check --fix --config pyproject.toml hooks tests p3g
 
 formatting: polish-codestyle
 format: polish-codestyle

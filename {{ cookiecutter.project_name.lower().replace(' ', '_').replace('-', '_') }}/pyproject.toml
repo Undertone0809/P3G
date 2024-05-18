@@ -74,13 +74,13 @@ coverage-badge = "^1.1.0"
 line-length = 88
 
 # https://beta.ruff.rs/docs/rules/
-select = ["E", "W", "F", "I"]
-extend-select = ["I"]
-ignore = ["F401"]
+lint.select = ["E", "W", "F", "I"]
+lint.extend-select = ["I"]
+lint.ignore = ["F401"]
 
 # Exclude a variety of commonly ignored directories.
 respect-gitignore = true
-ignore-init-module-imports = true
+lint.ignore-init-module-imports = true
 exclude = [
     ".bzr",
     ".direnv",
