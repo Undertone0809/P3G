@@ -51,7 +51,7 @@ check-safety:
 	poetry check
 	poetry run safety check --full-report
 	poetry run bandit -ll --recursive {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
-{%- endif -%}
+{%- endif %}
 
 lint: test check-codestyle {% if cookiecutter.install_safety %}check-safety{% endif %}
 
