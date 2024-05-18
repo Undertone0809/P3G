@@ -54,16 +54,16 @@
 
 ### 安装
 
-开始使用模板，请更新 `cookiecutter`
+开始使用模板，请安装 p3g
 
 ```bash
-pip install -U cookiecutter
+pip install -U p3g
 ```
 
 然后转到你想创建项目的目录并运行：
 
 ```bash
-cookiecutter gh:Undertone0809/3PG --checkout v1.2.1
+p3g generate
 ```
 
 ### 输入变量

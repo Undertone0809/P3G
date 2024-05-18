@@ -66,6 +66,13 @@ def print_further_instructions(project_name: str, github: str) -> None:
         github: GitHub username
     """
     message = f"""
+    👋 Hi, here. I'm Zeeland, If you think this project will be helpful to you, please point a star for the project 🌟🌟
+
+    If you encounter any problems in the development, please contact me, email: zeeland4work@gmail.com 📝
+
+    Github: https://github.com/Undertone0809/P3G
+
+
     Your project {project_name} is created.
 
     1) Now you can start working on it:
@@ -91,7 +98,7 @@ def print_further_instructions(project_name: str, github: str) -> None:
         $ git branch -M main
         $ git remote add origin https://github.com/{github}/{project_name}.git
         $ git push -u origin main
-    """
+    """ # noqa
     print(textwrap.dedent(message))
 
 

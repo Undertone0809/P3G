@@ -229,6 +229,6 @@ This project is licensed under the terms of the `{{ cookiecutter.license }}` lic
 }
 ```
 
-## Credits [![🚀 Your next Python package needs a bleeding-edge project structure.](https://img.shields.io/badge/3PG-%F0%9F%9A%80-brightgreen)](https://github.com/Undertone0809/python-package-template)
+## Credits [![🚀 Your next Python package needs a bleeding-edge project structure.](https://img.shields.io/badge/P3G-%F0%9F%9A%80-brightgreen)](https://github.com/Undertone0809/python-package-template)
 
-This project was generated with [`3PG`](https://github.com/Undertone0809/3PG)
+This project was generated with [`P3G`](https://github.com/Undertone0809/P3G)

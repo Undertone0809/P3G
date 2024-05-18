@@ -1,4 +1,4 @@
-# 3PG - Python Packages Project Generator
+# P3G - Python Packages Project Generator
 
 [English](README.md) [中文](README_zh.md)
 
@@ -24,8 +24,8 @@ Your next Python package needs a bleeding-edge project structure.
 If you don't want to read the whole README, just click the `Use this template` button and start coding your Python package right now! 🚀
 
 ```bash
-pip install cookiecutter
-cookiecutter gh:Undertone0809/3PG --checkout v1.2.1
+pip install p3g
+p3g generate
 ```
 
 ## 🚀 Features
@@ -63,16 +63,16 @@ In this [cookiecutter 🍪](https://github.com/cookiecutter/cookiecutter) templa
 
 ### Installation
 
-To begin using the template consider updating `cookiecutter`
+To begin using the template consider updating `p3g`
 
 ```bash
-pip install -U cookiecutter
+pip install -U p3g
 ```
 
 then go to a directory where you want to create your project and run:
 
 ```bash
-cookiecutter gh:Undertone0809/3PG --checkout v1.2.1
+p3g generate
 ```
 
 ### Input variables
