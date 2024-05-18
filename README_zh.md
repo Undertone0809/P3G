@@ -17,7 +17,7 @@
 你的下一个 Python 包需要一个前沿的项目结构。
 </div>
 
-> 这个版本是从 [https://github.com/TezRomacH/python-package-template](https://github.com/TezRomacH/python-package-template) 派生的。与原项目相比，当前项目提供了更好的 Windows 兼容性和更快的 lint 构建。
+> 这个版本是从 [https://github.com/TezRomacH/python-package-template](https://github.com/TezRomacH/python-package-template) 派生的。与原项目相比，当前项目提供了更好的 Windows 兼容性和更快的 lint 构建，以及更加轻量化的创建方式。
 
 ## 🚀 特性
 
@@ -90,7 +90,7 @@ p3g generate
 
 #### 演示
 
-[![github.com/Undertone0809/python-package-template 的演示](https://asciinema.org/a/422052.svg)](https://asciinema.org/a/422052)
+[![Create a cool Python project structure with p3g](https://zeeland-bucket.oss-cn-beijing.aliyuncs.com/images/20240519054442.png)](https://www.youtube.com/watch?v=dpKlGRgVp6g "Create a cool Python project structure with p3g")
 
 ### 更多细节
 
@@ -110,7 +110,7 @@ p3g generate
 
 ### 包示例
 
-想了解更多关于 Poetry？查看[它的文档](https://python-poetry.org/docs/)。
+想了解更多关于 Poetry？查看[相关文档](https://python-poetry.org/docs/)。
 
 <details>
 <summary>关于 Poetry 的细节</summary>

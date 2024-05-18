@@ -17,7 +17,7 @@
 Your next Python package needs a bleeding-edge project structure.
 </div>
 
-> This version is fork from [https://github.com/TezRomacH/python-package-template](https://github.com/TezRomacH/python-package-template). As a comparison, the current project provides better compatibility with Windows and faster lint construction.
+> This version is fork from [https://github.com/TezRomacH/python-package-template](https://github.com/TezRomacH/python-package-template). As a comparison, the current project provides better compatibility with Windows and faster lint construction. And a more lightweight way to create.
 
 ## TL;DR
 
@@ -99,7 +99,7 @@ All input values will be saved in the `cookiecutter-config-file.yml` file so tha
 
 #### Demo
 
-[![Demo of github.com/Undertone0809/python-package-template](https://asciinema.org/a/422052.svg)](https://asciinema.org/a/422052)
+[![Create a cool Python project structure with p3g](https://zeeland-bucket.oss-cn-beijing.aliyuncs.com/images/20240519054442.png)](https://www.youtube.com/watch?v=dpKlGRgVp6g "Create a cool Python project structure with p3g")
 
 ### More details
 
