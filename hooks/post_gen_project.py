@@ -1,4 +1,5 @@
 """This module is called after project is created."""
+
 import textwrap
 from pathlib import Path
 from shutil import move, rmtree
