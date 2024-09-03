@@ -191,7 +191,7 @@ Automatic formatting uses `ruff`.
 make polish-codestyle
 
 # or use synonym
-make formatting
+make format
 ```
 
 Codestyle checks only, without rewriting files:
