@@ -24,7 +24,7 @@ Your next Python package needs a bleeding-edge project structure.
 If you don't want to read the whole README, just click the `Use this template` button and start coding your Python package right now! 🚀
 
 ```bash
-pip install p3g
+pip install p3g -U
 p3g generate
 ```
 

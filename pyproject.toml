@@ -5,7 +5,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "p3g"
-version = "1.3.1"
+version = "1.3.3"
 description = "Python Packages Project Generator"
 readme = "README.md"
 authors = ["Zeeland <zeeland4work@gmail.com>"]
@@ -47,7 +47,7 @@ coverage = "^7.2.7"
 coverage-badge = "^1.1.0"
 pytest-html = "^3.1.1"
 pytest-cov = "^3.0.0"
-ruff = "^0.2.0"
+ruff = "^0.6.2"
 black = "^22.12"
 isort = {extras = ["colors"], version = "^5.10.1"}
 
@@ -59,14 +59,7 @@ p3g = "p3g.client:main"
 # https://docs.astral.sh/ruff/configuration/
 line-length = 88
 
-# https://beta.ruff.rs/docs/rules/
-lint.select = ["E", "W", "F", "I"]
-lint.extend-select = ["I"]
-lint.ignore = ["F401"]
-
 # Exclude a variety of commonly ignored directories.
-respect-gitignore = true
-lint.ignore-init-module-imports = true
 exclude = [
     ".bzr",
     ".direnv",
@@ -90,32 +83,24 @@ exclude = [
     "node_modules",
     "venv",
 ]
+respect-gitignore = true
+
+[tool.ruff.lint]
+# https://beta.ruff.rs/docs/rules/
+extend-select = ["I"]
+exclude = ["*.ipynb"]
+ignore = ["F401"]
+select = ["E", "W", "F", "I"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"  # Accepts: "google", "numpy", or "pep257".
 
 [tool.ruff.format]
-# Like Black, use double quotes for strings.
 quote-style = "double"
-
-# Like Black, indent with spaces, rather than tabs.
 indent-style = "space"
-
-# Like Black, respect magic trailing commas.
+exclude = ["*.ipynb"]
 skip-magic-trailing-comma = false
-
-# Like Black, automatically detect the appropriate line ending.
 line-ending = "auto"
-
-[tool.isort]
-# https://github.com/timothycrosley/isort/
-py_version = 37
-line_length = 88
-
-sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
-profile = "black"
-include_trailing_comma = true
-multi_line_output = 3
-indent = 4
-color_output = true
-
 
 [tool.mypy]
 # https://mypy.readthedocs.io/en/latest/config_file.html#using-a-pyproject-toml-file
