@@ -182,7 +182,7 @@ make pre-commit-install
 make polish-codestyle
 
 # 或使用同义词
-make formatting
+make format
 ```
 
 仅检查代码风格，不重写文件：

@@ -27,7 +27,6 @@ polish-codestyle:
 	poetry run ruff format --config pyproject.toml hooks tests p3g
 	poetry run ruff check --fix --config pyproject.toml hooks tests p3g
 
-formatting: polish-codestyle
 format: polish-codestyle
 
 test:

@@ -1,4 +1,5 @@
 """This module is called after project is created."""
+
 import textwrap
 from pathlib import Path
 from shutil import move, rmtree
@@ -89,7 +90,7 @@ def print_further_instructions(project_name: str, github: str) -> None:
 
     4) Run codestyle:
 
-        $ make formatting
+        $ make format
 
     5) Upload initial code to GitHub:
 

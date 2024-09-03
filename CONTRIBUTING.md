@@ -26,7 +26,7 @@ make pre-commit-install
 After installation you may execute code formatting. We use [ruff](https://github.com/astral-sh/ruff) to format our code.
 
 ```bash
-make formatting
+make format
 ```
 
 ### Checks
@@ -42,7 +42,7 @@ Before submitting your code please do the following steps:
 1. Add any changes you want
 1. Add tests for the new changes
 1. Edit documentation if you have changed something significant
-1. Run `make formatting` to format your changes.
+1. Run `make format` to format your changes.
 1. Run `make lint` to ensure that types, security and docstrings are okay.
 
 ## Other help
