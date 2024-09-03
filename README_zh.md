@@ -83,7 +83,7 @@ p3g generate
 | `email`                  | 基于 `organization` | 用于 `CODE_OF_CONDUCT.md`、`SECURITY.md` 文件和在 `pyproject.toml` 中指定项目所有权的电子邮件。                                                                                |
 | `version`                |           `0.1.0`           | 包的初始版本。确保它遵循 [Semantic Versions](https://semver.org/) 规范。                                                                                    |
 | `line_length`            |             88              | 每行的最大长度（用于 `black` 和 `isort` 的代码风格）。注意：此值必须在 50 到 300 之间。                                                                                 |
-| `using_tsinghua_image_source`            |            false            | 清华 poetry 镜像源                                                                                                                                                                    |
+| `using_tsinghua_mirror_source`            |            false            | 清华 poetry 镜像源                                                                                                                                                                    |
 | `create_example_template` |            `cli`            | 如果选择 `cli`，生成器将创建一个简单的 CLI 应用程序，使用 [`Typer`](https://github.com/tiangolo/typer) 和 [`Rich`](https://github.com/willmcgugan/rich) 库。`cli` 和 `none` 中的一个 |
 
 所有输入值将保存在 `cookiecutter-config-file.yml` 文件中，这样你就不会丢失它们。😉

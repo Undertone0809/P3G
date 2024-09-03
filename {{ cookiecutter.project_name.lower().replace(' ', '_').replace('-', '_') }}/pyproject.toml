@@ -39,7 +39,7 @@ classifiers = [  #! Update me
 # Entry points for the package https://python-poetry.org/docs/pyproject/#scripts
 "{{ cookiecutter.project_name }}" = "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}.__main__:app"{%- endif %}
 
-{% if cookiecutter.using_tsinghua_image_source -%}
+{% if cookiecutter.using_tsinghua_mirror_source -%}
 [[tool.poetry.source]]
 name = "tsinghua"
 url = "https://pypi.tuna.tsinghua.edu.cn/simple"

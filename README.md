@@ -92,7 +92,7 @@ The input variables, with their default values:
 | `email`                  | based on the `organization` | Email for `CODE_OF_CONDUCT.md`, `SECURITY.md` files and to specify the ownership of the project in `pyproject.toml`.                                                                                |
 | `version`                |           `0.1.0`           | Initial version of the package. Make sure it follows the [Semantic Versions](https://semver.org/) specification.                                                                                    |
 | `line_length`            |             88              | The max length per line (used for codestyle with `black` and `isort`). NOTE: This value must be between 50 and 300.                                                                                 |
-| `using_tsinghua_image_source`            |            false            | The tsinghua poetry image source                                                                                                                                                                    |
+| `using_tsinghua_mirror_source`            |            false            | The tsinghua poetry mirror source                                                                                                                                                                    |
 | `create_example_template` |            `cli`            | If `cli` is chosen generator will create simple CLI application with [`Typer`](https://github.com/tiangolo/typer) and [`Rich`](https://github.com/willmcgugan/rich) libraries. One of `cli`, `none` |
 
 All input values will be saved in the `cookiecutter-config-file.yml` file so that you won't lose them. 😉
