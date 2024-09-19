@@ -24,7 +24,7 @@ def main():
 
 def generate_proj():
     subprocess.run(
-        ["cookiecutter", "gh:Undertone0809/P3G", "--checkout", version("p3g")]
+        ["cookiecutter", "gh:Undertone0809/P3G", "--checkout", "v" + version("p3g")]
     )
 
 
