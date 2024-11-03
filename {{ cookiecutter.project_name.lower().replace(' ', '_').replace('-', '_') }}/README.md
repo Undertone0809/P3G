@@ -81,9 +81,6 @@ make pre-commit-install
 Automatic formatting uses `ruff`.
 
 ```bash
-make polish-codestyle
-
-# or use synonym
 make format
 ```
 

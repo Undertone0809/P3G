@@ -15,7 +15,7 @@ endif
 IMAGE := {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}
 VERSION := latest
 
-.PHONY: lock install {% if cookiecutter.install_pre_commit %}pre-commit-install{% endif %} polish-codestyle formatting test check-codestyle lint docker-build docker-remove cleanup help
+.PHONY: lock install {% if cookiecutter.install_pre_commit %}pre-commit-install{% endif %} formatting test check-codestyle lint docker-build docker-remove cleanup help
 
 lock:
 	poetry lock -n && poetry export --without-hashes > requirements.txt
@@ -29,12 +29,9 @@ pre-commit-install:
 	poetry run pre-commit install
 {%- endif %}
 
-polish-codestyle:
+format:
 	poetry run ruff format --config pyproject.toml .
 	poetry run ruff check --fix --config pyproject.toml .
-
-formatting: polish-codestyle
-format: polish-codestyle
 
 test:
 	$(TEST_COMMAND)
@@ -84,8 +81,7 @@ help:
 {%- if cookiecutter.install_pre_commit %}
 	@echo "pre-commit-install                        Install the pre-commit hooks."
 {%- endif %}
-	@echo "polish-codestyle                          Format the codebase."
-	@echo "formatting                                Format the codebase."
+	@echo "format                                    Format the codebase."
 	@echo "test                                      Run the tests."
 	@echo "check-codestyle                           Check the codebase for style issues."
 	@echo "lint                                      Run the tests and check the codebase for style issues."
