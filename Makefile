@@ -11,7 +11,7 @@ else
   TEST_COMMAND := PYTHONPATH=$(PYTHONPATH) poetry run pytest -c pyproject.toml --cov-report=html --cov=hooks tests/
 endif
 
-.PHONY: lock install pre-commit-install pre-commit-uninstall polish-codestyle formatting format test check-codestyle check-safety lint help
+.PHONY: lock install pre-commit-install pre-commit-uninstall format test check-codestyle check-safety lint help
 
 install:
 	poetry lock -n && poetry export --without-hashes > requirements.txt
@@ -23,11 +23,9 @@ pre-commit-install:
 pre-commit-uninstall:
 	poetry run pre-commit uninstall
 
-polish-codestyle:
+format:
 	poetry run ruff format --config pyproject.toml hooks tests p3g
 	poetry run ruff check --fix --config pyproject.toml hooks tests p3g
-
-format: polish-codestyle
 
 test:
 	$(TEST_COMMAND)
@@ -49,8 +47,6 @@ help:
 	@echo "install: Install the project dependencies."
 	@echo "pre-commit-install: Install the pre-commit hooks."
 	@echo "pre-commit-uninstall: Uninstall the pre-commit hooks."
-	@echo "polish-codestyle: Format the codebase using ruff."
-	@echo "formatting: Format the codebase using ruff."
 	@echo "format: Format the codebase using ruff."
 	@echo "test: Run the test suite."
 	@echo "check-codestyle: Check the codebase using ruff."

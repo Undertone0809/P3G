@@ -179,9 +179,6 @@ make pre-commit-install
 自动格式化使用 `ruff`。
 
 ```bash
-make polish-codestyle
-
-# 或使用同义词
 make format
 ```
 

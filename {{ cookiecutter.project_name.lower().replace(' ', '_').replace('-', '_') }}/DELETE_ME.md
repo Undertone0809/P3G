@@ -45,7 +45,7 @@ priority = "default"
 4. Run the codestyle to polish your code:
 
 ```bash
-make polish-codestyle
+make format
 ```
 
 5. Upload initial code to GitHub:
