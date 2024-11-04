@@ -132,15 +132,14 @@ addopts = [
 
 {% if cookiecutter.install_coverage -%}
 [tool.coverage.run]
-source = ["tests"]
-
-[coverage.paths]
-source = "{{ cookiecutter.project_name }}"
-
-[coverage.run]
+source = ["{{ cookiecutter.project_name }}", "tests"]
 branch = true
 
-[coverage.report]
+[tool.coverage.report]
 fail_under = 50
 show_missing = true
 {%- endif %}
+
+[tool.darglint]
+strictness = "short"
+docstring_style = "google"
