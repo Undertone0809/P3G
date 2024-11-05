@@ -21,7 +21,6 @@ lock:
 	poetry lock -n && poetry export --without-hashes > requirements.txt
 
 install:
-	poetry lock -n && poetry export --without-hashes > requirements.txt
 	poetry install -n
 
 {%- if cookiecutter.install_pre_commit %}

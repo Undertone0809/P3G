@@ -13,8 +13,10 @@ endif
 
 .PHONY: lock install pre-commit-install pre-commit-uninstall format test check-codestyle check-safety lint help
 
-install:
+lock:
 	poetry lock -n && poetry export --without-hashes > requirements.txt
+
+install:
 	poetry install -n
 
 pre-commit-install:
@@ -44,6 +46,7 @@ check-safety:
 lint: test check-codestyle check-safety
 
 help:
+	@echo "lock: Lock the project dependencies."
 	@echo "install: Install the project dependencies."
 	@echo "pre-commit-install: Install the pre-commit hooks."
 	@echo "pre-commit-uninstall: Uninstall the pre-commit hooks."
