@@ -65,7 +65,7 @@ ruff = "^0.7.2"
 coverage = "^7.2.7"
 coverage-badge = "^1.1.0"
 {%- endif %}
-{% if cookiecutter.install_safety %}safety = "^2.3.5"{% endif %}
+{% if cookiecutter.install_safety %}safety = "^3.2.10"{% endif %}
 {% if cookiecutter.install_darglint %}darglint = "^1.8.1"{% endif %}
 
 [tool.ruff]
