@@ -6,6 +6,9 @@ hero:
   name: "P3G"
   text: "🚀Python Packages Project Generator"
   tagline: Build your Python package with a bleeding-edge project structure.
+  image:
+    src: /logo.png
+    alt: P3G
   actions:
      - theme: brand
        text: What's P3G
