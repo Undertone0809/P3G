@@ -37,11 +37,14 @@ jobs:
 
     - name: Generate test project
       run: |
-        cookiecutter . --no-input --extra-context '{"project_name": "test_project"}'
-        cd test_project
-        poetry install --with dev
+        cookiecutter . --no-input \
+          project_name="test_project" \
+          minimal_python_version=3.8 \
+          create_example_template=cli \
+          license="MIT"
 
     - name: Run tests
       run: |
         cd test_project
+        poetry install --with dev
         poetry run pytest
