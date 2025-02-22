@@ -37,14 +37,19 @@ jobs:
 
     - name: Generate test project
       run: |
+        echo "Current directory:"
+        pwd
+        echo "Directory contents before:"
+        ls -la
+
         echo '{
-          "project_name": "test-project",
+          "project_name": "test_project",
           "minimal_python_version": 3.8,
           "create_example_template": "cli",
           "license": "MIT",
           "project_description": "Test project",
-          "organization": "test-org",
-          "github_name": "test-org",
+          "organization": "test_org",
+          "github_name": "test_org",
           "email": "test@example.com",
           "version": "0.1.0",
           "line_length": 88,
@@ -55,10 +60,44 @@ jobs:
           "install_darglint": false,
           "install_safety": false
         }' > cookiecutter_config.json
-        cookiecutter . --no-input --config-file cookiecutter_config.json
+
+        echo "Running cookiecutter:"
+        cookiecutter . --no-input --config-file cookiecutter_config.json -v
+
+        echo "Directory contents after:"
+        ls -la
+
+        echo "Finding generated project directory:"
+        find . -maxdepth 1 -type d -name "test_project*" || true
+        find . -maxdepth 1 -type d -name "test-project*" || true
 
     - name: Run tests
       run: |
-        cd test-project
+        echo "Current directory:"
+        pwd
+        echo "Directory contents:"
+        ls -la
+
+        if [ -d "test_project" ]; then
+          echo "Found test_project directory"
+          cd test_project
+        elif [ -d "test-project" ]; then
+          echo "Found test-project directory"
+          cd test-project
+        else
+          echo "Searching for project directory..."
+          PROJECT_DIR=$(find . -maxdepth 1 -type d -name "test*" -print -quit)
+          if [ -n "$PROJECT_DIR" ]; then
+            echo "Found directory: $PROJECT_DIR"
+            cd "$PROJECT_DIR"
+          else
+            echo "ERROR: Could not find project directory"
+            exit 1
+          fi
+        fi
+
+        echo "Project directory contents:"
+        ls -la
+
         poetry install --with dev
         poetry run pytest
