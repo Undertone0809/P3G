@@ -37,12 +37,25 @@ jobs:
 
     - name: Generate test project
       run: |
-        cookiecutter . --no-input \
-          --config-file cookiecutter.json \
-          project_name=test_project \
-          minimal_python_version=[3.8] \
-          create_example_template=cli \
-          license=MIT
+        echo '{
+          "project_name": "test-project",
+          "minimal_python_version": 3.8,
+          "create_example_template": "cli",
+          "license": "MIT",
+          "project_description": "Test project",
+          "organization": "test-org",
+          "github_name": "test-org",
+          "email": "test@example.com",
+          "version": "0.1.0",
+          "line_length": 88,
+          "using_tsinghua_mirror_source": false,
+          "install_ruff": true,
+          "install_pre_commit": true,
+          "install_coverage": true,
+          "install_darglint": false,
+          "install_safety": false
+        }' > cookiecutter_config.json
+        cookiecutter . --no-input --config-file cookiecutter_config.json
 
     - name: Run tests
       run: |
