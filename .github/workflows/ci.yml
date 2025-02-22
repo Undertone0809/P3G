@@ -29,12 +29,19 @@ jobs:
     - name: Install poetry
       run: |
         python -m pip install --upgrade pip
-        pip install poetry
+        pip install poetry cookiecutter
 
     - name: Install dependencies
       run: |
         poetry install --with dev
 
+    - name: Generate test project
+      run: |
+        cookiecutter . --no-input --extra-context '{"project_name": "test_project"}'
+        cd test_project
+        poetry install --with dev
+
     - name: Run tests
       run: |
+        cd test_project
         poetry run pytest
