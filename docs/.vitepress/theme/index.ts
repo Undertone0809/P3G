@@ -8,8 +8,5 @@ export default {
   extends: DefaultTheme,
   Layout: () => {
     return h(DefaultTheme.Layout, null)
-  },
-  enhanceApp({ app, router, siteData }) {
-    // ...
   }
 } satisfies Theme
