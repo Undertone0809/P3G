@@ -19,4 +19,4 @@ For more information, please contact: [zeeland4work@gmail.com](mailto:zeeland4wo
 
 ## ⭐ Contribution
 
-We appreciate your interest in contributing to our open-source initiative. We have provided a [Developer's Guide](../other/contribution) outlining the steps to contribute to Promptulate. Please refer to this guide to ensure smooth collaboration and successful contributions.🤝🚀
+We appreciate your interest in contributing to our open-source initiative. We have provided a [Developer's Guide](../other/contribution) outlining the steps to contribute to P3G. Please refer to this guide to ensure smooth collaboration and successful contributions.🤝🚀

@@ -1,7 +1,7 @@
 # Quick Start
-Through this section of the tutorial, you can quickly get a comprehensive understanding of Promptulate, learn the basic usage of some commonly used modules.
+Through this section of the tutorial, you can quickly get a comprehensive understanding of P3G, learn the basic usage of some commonly used modules.
 
-After reading this section, you can continue to read [Use Cases](../use_cases/intro) to learn some best practices for promptulate, to see how each module is used in case of a problem, Also welcome you in [issue](https://github.com/Undertone0809/P3G/issues) for promptulate provide better advice.
+After reading this section, you can continue to read [Use Cases](../use_cases/intro) to learn some best practices for P3G, to see how each module is used in case of a problem, Also welcome you in [issue](https://github.com/Undertone0809/P3G/issues) for P3G provide better advice.
 
 
 ## Installation
