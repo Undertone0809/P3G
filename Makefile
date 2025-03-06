@@ -45,6 +45,12 @@ check-safety:
 
 lint: test check-codestyle check-safety
 
+install-docs:
+	cd ./docs && pnpm install
+
+start-docs:
+	cd ./docs && pnpm docs:dev
+
 help:
 	@echo "lock: Lock the project dependencies."
 	@echo "install: Install the project dependencies."

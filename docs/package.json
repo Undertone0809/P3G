@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "vitepress": "^1.6.3",
+    "@vite-pwa/vitepress": "^0.5.3"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "@vitejs/plugin-vue": "^5.2.1"
+  }
+}
