@@ -99,4 +99,4 @@ If you encounter any issues during installation, try the following:
    pip install {{ cookiecutter.project_name.lower().replace(' ', '-') }}
    ```
 
-If you still have issues, please [open an issue](<https://github.com/{{> cookiecutter.github_name }}/{{ cookiecutter.project_name }}/issues) on our GitHub repository.
+If you still have issues, please [open an issue](<https://github.com/{{ cookiecutter.github_name }}/{{ cookiecutter.project_name }}/issues>) on our GitHub repository.

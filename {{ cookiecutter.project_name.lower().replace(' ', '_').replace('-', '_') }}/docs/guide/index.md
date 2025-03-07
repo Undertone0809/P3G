@@ -70,4 +70,4 @@ Now that you have {{ cookiecutter.project_name }} installed, you can:
 2. Explore the [API Reference](/api/) for detailed information about all available functions and classes
 3. Look at the [Examples](/api/examples) to see {{ cookiecutter.project_name }} in action
 
-If you encounter any issues or have questions, please [open an issue](<https://github.com/{{> cookiecutter.github_name }}/{{ cookiecutter.project_name }}/issues) on our GitHub repository.
+If you encounter any issues or have questions, please [open an issue](https://github.com/{{ cookiecutter.github_name }}/{{ cookiecutter.project_name }}/issues) on our GitHub repository.
