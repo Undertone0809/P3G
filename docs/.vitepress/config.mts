@@ -23,7 +23,6 @@ export default withPwa(
       },
       nav: [
         { text: "Guide", link: "/get_started/intro" },
-        { text: "Use cases", link: "/use_cases/intro" },
       ],
       outline: {
         level: [2, 3],

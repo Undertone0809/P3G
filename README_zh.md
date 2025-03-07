@@ -19,6 +19,10 @@
 
 > 这个版本是从 [https://github.com/TezRomacH/python-package-template](https://github.com/TezRomacH/python-package-template) 派生的。与原项目相比，当前项目提供了更好的 Windows 兼容性和更快的 lint 构建，以及更加轻量化的创建方式。
 
+## 📚 文档
+
+完整文档请访问：[https://p3g.zeeland.top](https://p3g.zeeland.top)
+
 ## 🚀 特性
 
 在这个 [cookiecutter 🍪](https://github.com/cookiecutter/cookiecutter) 模板中，我们结合了最先进的库和 Python 最佳开发实践。

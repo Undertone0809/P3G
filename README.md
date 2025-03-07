@@ -28,6 +28,10 @@ pip install p3g -U
 p3g generate
 ```
 
+## 📚 Documentation
+
+For complete documentation, visit: [https://p3g.zeeland.top](https://p3g.zeeland.top)
+
 ## 🚀 Features
 
 In this [cookiecutter 🍪](https://github.com/cookiecutter/cookiecutter) template we combine state-of-the-art libraries and best development practices for Python.
@@ -340,7 +344,7 @@ You can see the list of available releases on the [GitHub Releases](https://gith
 
 We follow [Semantic Versions](https://semver.org/) specification.
 
-We use [`Release Drafter`](https://github.com/marketplace/actions/release-drafter). As pull requests are merged, a draft release is kept up-to-date listing the changes, ready to publish when you’re ready. With the categories option, you can categorize pull requests in release notes using labels.
+We use [`Release Drafter`](https://github.com/marketplace/actions/release-drafter). As pull requests are merged, a draft release is kept up-to-date listing the changes, ready to publish when you're ready. With the categories option, you can categorize pull requests in release notes using labels.
 
 ### List of labels and corresponding titles
 
