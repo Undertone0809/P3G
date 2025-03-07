@@ -2,6 +2,20 @@
 
 **P3G** is a tool designed to generate modern Python package project structures, leveraging Poetry for dependency management and integrating various development tools and best practices to help developers quickly create up-to-date Python projects with support for Python 3.7 and higher, automatic code formatting, type checking, security checks, pre-configured GitHub Actions, Docker support, and automated documentation generation.🚀
 
+## 🤔 Why You Need P3G
+
+Setting up a new Python project with best practices can be time-consuming and complex. P3G solves this problem by:
+
+- **Saving Time**: Eliminate hours spent configuring development environments and tooling.
+- **Ensuring Consistency**: Maintain the same high-quality structure across all your Python projects.
+- **Following Best Practices**: Automatically implement industry-standard practices for code quality, testing, and deployment.
+- **Reducing Technical Debt**: Start with a clean, well-structured project that's easier to maintain long-term.
+- **Simplifying Collaboration**: Pre-configured GitHub templates and workflows make team collaboration seamless.
+- **Accelerating Development**: Focus on writing your actual code instead of project setup and infrastructure.
+- **Staying Current**: Benefit from modern tools like Poetry, Ruff, and automated dependency updates without the learning curve.
+
+Whether you're a seasoned Python developer or just starting out, P3G helps you build professional-grade Python packages without the setup headaches.
+
 ## 💡 Features
 
 ### Development features
@@ -14,7 +28,7 @@
 - Testing with [`pytest`](https://docs.pytest.org/en/latest/).
 - Ready-to-use `.editorconfig`, `.dockerignore`, and `.gitignore`. You don't have to worry about those things.
 - The ability of building docker.
-
+  
 ### Deployment features
 
 - `GitHub` integration: issue and PR templates.

@@ -42,7 +42,7 @@ All input values will be saved in the cookiecutter-config-file.yml file for futu
 
 ## 4. More Details
 
-Your generated project will include a comprehensive `README.md` file with detailed instructions for development, deployment, and more. You can preview [the project README.md template](https://github.com/Undertone0809/python-package-template/tree/main/%7B%7B%20cookiecutter.project_name%20%7D%7D) before creating your project.
+Your generated project will include a comprehensive `DELETE_ME.md` file with detailed instructions for development, deployment, and more.
 
 ## 5. Initial Setup
 
