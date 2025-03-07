@@ -19,6 +19,12 @@ categories:
     labels: [dependencies, chore]
 
 template: |
+  👋 Hello and welcome to the release notes for P3G v$NEXT_PATCH_VERSION! We're excited to share some new updates that we believe will enhance your experience with P3G.
+  
+  For detailed information, please visit our official documentation: [P3G Documentation](https://p3g.zeeland.top)
+
+  To see the code, report issues, or contribute, check out our GitHub repository: [P3G on GitHub](https://github.com/Undertone0809/p3g)
+
   ## What’s Changed
 
   $CHANGES
