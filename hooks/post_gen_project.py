@@ -10,6 +10,7 @@ PROJECT_DIRECTORY = Path.cwd().absolute()
 PROJECT_NAME = "{{ cookiecutter.project_name }}"
 PROJECT_MODULE = "{{ cookiecutter.project_name.lower().replace(' ', '_') }}"
 CREATE_EXAMPLE_TEMPLATE = "{{ cookiecutter.create_example_template }}"
+CREATE_DOCS = "{{ cookiecutter.create_docs }}"
 
 # Values to generate correct license
 LICENSE = "{{ cookiecutter.license }}"
@@ -38,7 +39,10 @@ def generate_license(directory: Path, licence: str) -> None:
 
 
 def remove_unused_files(
-    directory: Path, module_name: str, need_to_remove_cli: bool
+    directory: Path,
+    module_name: str,
+    need_to_remove_cli: bool,
+    need_to_remove_docs: bool,
 ) -> None:
     """Remove unused files.
 
@@ -46,17 +50,27 @@ def remove_unused_files(
         directory: path to the project directory
         module_name: project module name
         need_to_remove_cli: flag for removing CLI related files
+        need_to_remove_docs: flag for removing documentation related files
     """
     files_to_delete: List[Path] = []
 
     def _cli_specific_files() -> List[Path]:
         return [directory / module_name / "__main__.py"]
 
+    def _docs_specific_files() -> List[Path]:
+        return [directory / "docs"]
+
     if need_to_remove_cli:
         files_to_delete.extend(_cli_specific_files())
 
+    if need_to_remove_docs:
+        files_to_delete.extend(_docs_specific_files())
+
     for path in files_to_delete:
-        path.unlink()
+        if path.is_file():
+            path.unlink()
+        elif path.is_dir():
+            rmtree(str(path))
 
 
 def print_further_instructions(project_name: str, github: str) -> None:
@@ -66,6 +80,20 @@ def print_further_instructions(project_name: str, github: str) -> None:
         project_name: current project name
         github: GitHub username
     """
+    docs_instructions = (
+        """
+    6) If you want to develop the documentation (if you chose to include it):
+
+        $ cd docs
+        $ npm install
+        $ npm run docs:dev
+
+       The documentation will be available at http://localhost:5173
+    """
+        if CREATE_DOCS == "yes"
+        else ""
+    )
+
     message = f"""
     👋 Hi, here. I'm Zeeland, If you think this project will be helpful to you, please point a star for the project 🌟🌟
 
@@ -99,6 +127,7 @@ def print_further_instructions(project_name: str, github: str) -> None:
         $ git branch -M main
         $ git remote add origin https://github.com/{github}/{project_name}.git
         $ git push -u origin main
+    {docs_instructions}
     """  # noqa
     print(textwrap.dedent(message))
 
@@ -109,6 +138,7 @@ def main() -> None:
         directory=PROJECT_DIRECTORY,
         module_name=PROJECT_MODULE,
         need_to_remove_cli=CREATE_EXAMPLE_TEMPLATE != "cli",
+        need_to_remove_docs=CREATE_DOCS != "yes",
     )
     print_further_instructions(project_name=PROJECT_NAME, github=GITHUB_USER)
 
