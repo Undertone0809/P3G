@@ -17,7 +17,7 @@ hero:
       link: /guide/
     - theme: alt
       text: View on GitHub
-      link: <https://github.com/{{> cookiecutter.github_name }}/{{ cookiecutter.project_name }}
+      link: https://github.com/{{ cookiecutter.github_name }}/{{ cookiecutter.project_name }}
 
 features:
 
