@@ -33,12 +33,17 @@ The template generator will prompt you to provide several configuration variable
 | line_length                | 88                          | Maximum line length for code style (black and isort). Must be between 50-300. |
 | using_tsinghua_mirror_source | false                     | Whether to use Tsinghua Poetry mirror source.                               |
 | create_example_template    | cli                         | Template type: "cli" creates a simple CLI app with Typer and Rich; "none" for no template. |
+| create_docs                | true                        | Whether to create a documentation site with VitePress.                      |
 
 All input values will be saved in the cookiecutter-config-file.yml file for future reference. 😉
 
 ## 3. Demo
 
-[![Create a cool Python project structure with p3g](https://zeeland-bucket.oss-cn-beijing.aliyuncs.com/images/20240519054442.png)](https://www.youtube.com/watch?v=dpKlGRgVp6g "Create a cool Python project structure with p3g")
+<script setup>
+import IFrame from '/components/iframe.vue'
+</script>
+
+<IFrame src="https://www.youtube.com/embed/dpKlGRgVp6g" />
 
 ## 4. More Details
 
@@ -254,3 +259,53 @@ make cleanup
 
 </p>
 </details>
+
+## 9. 📚 Documentation with VitePress
+
+P3G includes built-in support for creating beautiful documentation using [VitePress](https://vitepress.dev/), a modern static site generator powered by Vue.
+
+### 9.1. Documentation Structure
+
+Your project comes with a pre-configured documentation structure in the `docs` directory:
+
+```
+docs/
+├── .vitepress/        # VitePress configuration
+├── get_started/       # Getting started guides
+├── components/        # Vue components for docs
+├── public/            # Static assets
+├── index.md           # Home page
+└── package.json       # Node dependencies
+```
+
+### 9.2. Setting Up Documentation
+
+To set up and start working with your documentation:
+
+```bash
+cd docs
+npm install      # or yarn install
+npm run dev      # start dev server
+```
+
+### 9.3. Building Documentation
+
+To build your documentation for production:
+
+```bash
+cd docs
+npm run build
+```
+
+This will generate static files in the `.vitepress/dist` directory that you can deploy to any static hosting service.
+
+### 9.4. Customizing Documentation
+
+You can customize your documentation by editing the VitePress configuration in `docs/.vitepress/config.js`:
+
+- Change theme colors and appearance
+- Configure navigation and sidebar
+- Add plugins and extensions
+- Set up search functionality
+
+For more details, refer to the [VitePress documentation](https://vitepress.dev/reference/site-config).

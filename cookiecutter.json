@@ -31,10 +31,7 @@
     "cli",
     "none"
   ],
-  "create_docs": [
-    "yes",
-    "no"
-  ],
+  "create_docs": true,
   "_copy_without_render": [
     "poetry.lock"
   ]

@@ -90,7 +90,7 @@ def print_further_instructions(project_name: str, github: str) -> None:
 
        The documentation will be available at http://localhost:5173
     """
-        if CREATE_DOCS == "yes"
+        if CREATE_DOCS == "true"
         else ""
     )
 
@@ -138,7 +138,7 @@ def main() -> None:
         directory=PROJECT_DIRECTORY,
         module_name=PROJECT_MODULE,
         need_to_remove_cli=CREATE_EXAMPLE_TEMPLATE != "cli",
-        need_to_remove_docs=CREATE_DOCS != "yes",
+        need_to_remove_docs=CREATE_DOCS != "true",
     )
     print_further_instructions(project_name=PROJECT_NAME, github=GITHUB_USER)
 
