@@ -5,7 +5,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "p3g"
-version = "1.5.2"
+version = "1.5.3"
 description = "Python Packages Project Generator"
 readme = "README.md"
 authors = ["Zeeland <zeeland4work@gmail.com>"]

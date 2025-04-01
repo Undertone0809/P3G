@@ -15,7 +15,7 @@ endif
 IMAGE := {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}
 VERSION := latest
 
-.PHONY: lock install {% if cookiecutter.install_pre_commit %}pre-commit-install{% endif %} formatting test check-codestyle lint docker-build docker-remove cleanup help
+.PHONY: lock install {% if cookiecutter.install_pre_commit %}pre-commit-install{% endif %} formatting test check-codestyle lint {% if cookiecutter.create_docs %}docs-install docs-start{% endif %} docker-build docker-remove cleanup help
 
 lock:
 	poetry lock -n && poetry export --without-hashes > requirements.txt
@@ -52,6 +52,14 @@ check-safety:
 
 lint: test check-codestyle {% if cookiecutter.install_safety %}check-safety{% endif %}
 
+{% if cookiecutter.create_docs -%}
+docs-install:
+	cd docs && npm run install
+
+docs-start:
+	cd docs && npm run docs:dev
+{%- endif %}
+
 # Example: make docker-build VERSION=latest
 # Example: make docker-build IMAGE=some_name VERSION={{ cookiecutter.version }}
 docker-build:
@@ -84,6 +92,10 @@ help:
 	@echo "test                                      Run the tests."
 	@echo "check-codestyle                           Check the codebase for style issues."
 	@echo "lint                                      Run the tests and check the codebase for style issues."
+{%- if cookiecutter.create_docs %}
+	@echo "docs install                              Install the documentation server."
+	@echo "docs start                                Run the docs server."
+{%- endif %}
 	@echo "docker-build                              Build the docker image."
 	@echo "docker-remove                             Remove the docker image."
 	@echo "cleanup                                   Clean the project directory."
