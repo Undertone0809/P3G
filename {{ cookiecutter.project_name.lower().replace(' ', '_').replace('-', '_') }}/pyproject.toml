@@ -54,7 +54,7 @@ typer = {extras = ["all"], version = "^0.4.0"}
 rich = "^10.14.0"
 {%- endif %}
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
 pytest-html = "^4.1.1"
 pytest-cov = "^5.0.0"
