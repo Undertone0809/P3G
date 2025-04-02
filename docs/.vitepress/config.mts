@@ -1,11 +1,44 @@
 import { defineConfig } from "vitepress";
 import { withPwa } from "@vite-pwa/vitepress";
 
+const getAnalyticsScripts = () => {
+  if (process.env.NODE_ENV === "development") {
+    return [];
+  }
+
+  return [
+    [
+      "script",
+      {
+        defer: "true",
+        "data-website-id": "3987279b-d6de-4294-bb20-b971a8ba6997",
+        src: "https://umami.zeeland.top/script.js",
+      },
+    ] as [string, Record<string, string>],
+    [
+      "script",
+      {
+        async: "true",
+        src: "https://www.googletagmanager.com/gtag/js?id=G-KLE8HJYSSL",
+      },
+    ] as [string, Record<string, string>],
+    [
+      "script",
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KLE8HJYSSL');`,
+    ] as [string, Record<string, string>, string],
+  ];
+};
+
 export default withPwa(
   defineConfig({
     title: "P3G",
     description: "P3G Docs",
     head: [
+      ...getAnalyticsScripts(),
       ["link", { rel: "icon", href: "/logo.ico" }],
       ["meta", { property: "og:title", content: "P3G" }],
       [
