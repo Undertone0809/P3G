@@ -65,6 +65,7 @@ def remove_unused_files(
 
     if need_to_remove_docs:
         files_to_delete.extend(_docs_specific_files())
+        files_to_delete.append(directory / ".github" / "workflows" / "deploy-pages.yml")
 
     for path in files_to_delete:
         if path.is_file():
