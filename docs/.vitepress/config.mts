@@ -53,5 +53,25 @@ export default withPwa(
         text: "Edit this page on GitHub",
       },
     },
+    pwa: {
+      manifest: {
+        name: "P3G",
+        short_name: "P3G",
+        theme_color: "#2b2a27",
+        background_color: "#ffffff",
+        display: "standalone",
+        orientation: "portrait",
+        scope: "/",
+        start_url: "/",
+        icons: [
+          {
+            src: "/logo.png",
+            sizes: "192x192",
+            type: "image/png",
+            purpose: "maskable any",
+          },
+        ],
+      },
+    },
   })
 );

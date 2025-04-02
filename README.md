@@ -1,3 +1,7 @@
+<p align="center">
+   <img src="./docs/public/banner.png" alt="conftier Banner" style="border-radius: 15px;">
+</p>
+
 # P3G - Python Packages Project Generator
 
 [English](README.md) [中文](README_zh.md)

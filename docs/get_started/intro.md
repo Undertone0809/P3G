@@ -1,3 +1,18 @@
+---
+title: Introduction
+description: Introduction to P3G(Python Packages Project Generator)
+head:
+  - - meta
+    - property: og:title
+      content: Introduction to P3G(Python Packages Project Generator)
+    - property: og:description
+      content: Introduction to P3G(Python Packages Project Generator)
+---
+
+<p align="center">
+   <img src="/banner.png" alt="P3G Banner" style="border-radius: 15px;">
+</p>
+
 ## Overview
 
 **P3G** is a tool designed to generate modern Python package project structures, leveraging Poetry for dependency management and integrating various development tools and best practices to help developers quickly create up-to-date Python projects with support for Python 3.7 and higher, automatic code formatting, type checking, security checks, pre-configured GitHub Actions, Docker support, and automated documentation generation.🚀

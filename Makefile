@@ -62,3 +62,5 @@ help:
 	@echo "check-safety: Check the codebase using safety and bandit."
 	@echo "lint: Run the test suite, check the codebase using ruff, safety, and bandit."
 	@echo "help: Show this help message."
+	@echo "install-docs: Install the docs dependencies."
+	@echo "start-docs: Start the docs server."

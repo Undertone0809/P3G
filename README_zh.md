@@ -1,3 +1,7 @@
+<p align="center">
+   <img src="./docs/public/banner.png" alt="conftier Banner" style="border-radius: 15px;">
+</p>
+
 # Python 包项目生成器
 
 [英文](README.md) [中文](README_zh.md)

@@ -15,7 +15,7 @@ endif
 IMAGE := {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}
 VERSION := latest
 
-.PHONY: lock install {% if cookiecutter.install_pre_commit %}pre-commit-install{% endif %} formatting test check-codestyle lint {% if cookiecutter.create_docs %}docs-install docs-start{% endif %} docker-build docker-remove cleanup help
+.PHONY: lock install {% if cookiecutter.install_pre_commit %}pre-commit-install{% endif %} formatting test check-codestyle lint {% if cookiecutter.create_docs %}install-docs start-docs{% endif %} docker-build docker-remove cleanup help
 
 lock:
 	poetry lock -n && poetry export --without-hashes > requirements.txt
@@ -53,10 +53,10 @@ check-safety:
 lint: test check-codestyle {% if cookiecutter.install_safety %}check-safety{% endif %}
 
 {% if cookiecutter.create_docs -%}
-docs-install:
+install-docs:
 	cd docs && npm run install
 
-docs-start:
+start-docs:
 	cd docs && npm run docs:dev
 {%- endif %}
 
