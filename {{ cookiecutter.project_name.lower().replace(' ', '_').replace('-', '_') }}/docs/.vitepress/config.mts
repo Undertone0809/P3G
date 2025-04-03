@@ -11,7 +11,7 @@ export default withPwa(
       logo: "/logo.png",
       nav: [
         { text: "Home", link: "/" },
-        { text: "Guide", link: "/guide/" },
+        { text: "Guide", link: "/guide/introduction" },
         { text: "API", link: "/api/" },
         {
           text: "GitHub",
@@ -22,8 +22,8 @@ export default withPwa(
         {
           text: "Introduction",
           items: [
-            { text: "Getting Started", link: "/guide/" },
-            { text: "Installation", link: "/guide/installation" },
+            { text: "Introduction", link: "/guide/introduction" },
+            { text: "Quick Start", link: "/guide/quick-start" },
           ],
         },
         {
@@ -31,6 +31,13 @@ export default withPwa(
           items: [
             { text: "Overview", link: "/api/" },
             { text: "Examples", link: "/api/examples" },
+          ],
+        },
+        {
+          text: "Other",
+          items: [
+            { text: "Changelog", link: "/other/changelog" },
+            { text: "Contributing", link: "/other/contributing" },
           ],
         },
       ],
