@@ -19,6 +19,12 @@ categories:
     labels: [dependencies]
 
 template: |
+  👋 Hello and welcome to the release notes for {{ cookiecutter.project_name }} v$NEXT_PATCH_VERSION! We're excited to share some new updates that we believe will enhance your experience with {{ cookiecutter.project_name }}.
+  {% if cookiecutter.create_docs %}
+  For detailed information, please visit our official documentation: [{{ cookiecutter.project_name }} Documentation](https://{{ cookiecutter.project_name }}.github.io)
+  {% endif %}
+  To see the code, report issues, or contribute, check out our GitHub repository: [{{ cookiecutter.project_name }} on GitHub](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }})
+
   ## What’s Changed
 
   $CHANGES
