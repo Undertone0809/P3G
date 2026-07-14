@@ -89,7 +89,7 @@ exclude = [
     ".svn",
     ".tox",
     ".venv",
-    "__packages__",
+    "__pypackages__",
     "_build",
     "buck-out",
     "build",
