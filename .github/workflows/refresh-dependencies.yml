@@ -1,6 +1,9 @@
 name: refresh dependencies
 
 on:
+  push:
+    branches:
+      - chore/update-dependencies-2026-07
   pull_request:
     branches:
       - main
@@ -11,14 +14,14 @@ permissions:
 
 jobs:
   refresh:
-    if: github.actor != 'github-actions[bot]' && github.head_ref == 'chore/update-dependencies-2026-07'
+    if: github.actor != 'github-actions[bot]' && (github.head_ref == 'chore/update-dependencies-2026-07' || github.ref_name == 'chore/update-dependencies-2026-07')
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out pull request branch
+      - name: Check out dependency branch
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.head_ref || github.ref_name }}
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -245,4 +248,4 @@ jobs:
           git add -u
           git status --short
           git commit -m 'chore: update dependencies'
-          git push origin HEAD:${{ github.head_ref }}
+          git push origin HEAD:${{ github.head_ref || github.ref_name }}
